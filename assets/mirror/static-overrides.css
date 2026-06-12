@@ -317,7 +317,13 @@
   background-image: url("/assets/mirror/uploads/2026/06/q.jpg");
   background-position: center;
   background-size: cover;
+  display: block;
   min-height: 520px;
+  text-decoration: none;
+}
+
+a.m-training-opening__media:hover {
+  opacity: 0.96;
 }
 
 .m-training-kicker,
@@ -2885,14 +2891,29 @@ body.custom-modal-open {
   transform: translateY(-1px);
 }
 
+.m-product-image-buttons__info {
+  background: #504a4a;
+  color: #ddb999;
+  border: none;
+  min-width: 12rem;
+  padding: 0.75rem 2rem;
+}
+
+.m-product-image-buttons__info:hover {
+  background: #3d3838;
+  transform: translateY(-1px);
+}
+
 @media (max-width: 600px) {
   .m-product-image-buttons {
     gap: 0.5rem;
   }
   .m-product-image-buttons__cart,
-  .m-product-image-buttons__buy {
+  .m-product-image-buttons__buy,
+  .m-product-image-buttons__info {
     font-size: 0.7rem;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.5rem;
+    min-width: 10rem;
   }
 }
 

@@ -1539,9 +1539,9 @@
   function enhanceMentoringPageButtons() {
     const productUrl = "/product/integrative-nutrition-and-wellness-mentoring-session/";
     document.addEventListener("click", (e) => {
-      const target = e.target.closest(".m-product-image-buttons__cart, .m-product-image-buttons__buy");
+      const target = e.target.closest(".m-product-image-buttons__info, .m-training-opening__media");
       if (!target) return;
-      const container = target.closest(".m-product-listing");
+      const container = target.closest(".m-product-listing, .m-training-opening");
       if (!container) return;
       e.stopImmediatePropagation();
       if (target.tagName !== "A" || target.getAttribute("href") !== productUrl) {
