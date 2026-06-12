@@ -1484,6 +1484,7 @@
       });
       container.appendChild(buyBtn);
 
+      column.style.position = "relative";
       column.appendChild(container);
     });
   }
