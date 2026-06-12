@@ -1541,15 +1541,19 @@
     if (!container) return;
     const cartBtn = container.querySelector(".m-product-image-buttons__cart");
     const buyBtn = container.querySelector(".m-product-image-buttons__buy");
+    const bookingWidget = document.querySelector(".m-booking-widget");
     if (cartBtn) {
       cartBtn.addEventListener("click", () => {
-        addToCart(825);
+        if (bookingWidget) {
+          bookingWidget.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       });
     }
     if (buyBtn) {
       buyBtn.addEventListener("click", () => {
-        addToCart(825);
-        window.location.href = localCheckoutUrl();
+        if (bookingWidget) {
+          bookingWidget.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       });
     }
   }
