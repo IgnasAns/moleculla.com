@@ -893,8 +893,17 @@ body.woocommerce-checkout .wc-block-components-address-card .wc-block-components
 <main class="m-mentoring-page">
   <section class="m-training-opening" aria-labelledby="m-training-title">
     <div class="m-training-opening__copy">
-      <p class="m-training-kicker">Moleculla mentoring</p>
-      <h1 id="m-training-title">Practical wellness education for everyday decisions.</h1>
+      <h1 class="m-training-kicker" id="m-training-title">if you want</h1>
+      <ul class="m-training-bullets">
+        <li>More energy and vitality</li>
+        <li>Better sleep and recovery</li>
+        <li>Healthier digestion and gut balance</li>
+        <li>Balanced hormones and improved mood</li>
+        <li>Sharper mind and clearer thinking</li>
+        <li>Reduced stress and greater resilience</li>
+        <li>Sustainable healthy habits</li>
+        <li>A stronger foundation for longevity and disease prevention</li>
+      </ul>
     </div>
     <div class="m-training-opening__media" aria-hidden="true">
       <div class="m-product-image-buttons">
@@ -936,25 +945,27 @@ body.woocommerce-checkout .wc-block-components-address-card .wc-block-components
       .m-about-details-accordion details[open] .m-details-arrow {
         transform: rotate(180deg);
       }
-      .m-about-details-accordion .m-details-content {
+      .m-about-details-accordion .m-details-content,
+      .m-about-details-accordion .m-details-content p,
+      .m-about-details-accordion .m-details-content li {
         margin-top: 1rem;
         padding-left: 0.5rem;
         color: #665f58;
-        line-height: 1.7;
-        font-size: 0.98rem;
+        line-height: 1.6;
+        font-size: 1.25rem;
       }
     </style>
     <div class="m-training-about__copy">
       <p>Together, we assess key areas influencing your wellbeing - energy, digestion, hormonal balance, and resilience - and translate them into practical, sustainable habits. The focus is on early intervention and optimization: supporting your body before dysfunction develops, and building a foundation for healthy aging.</p>
       <p>You will receive clear, tailored guidance rooted in holistic nutrition and clinical insight, helping you improve daily function while reducing long-term health risks.</p>
 
-      <div class="m-about-details-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem; margin-top: 3rem; margin-bottom: 3rem;">
+      <div class="m-about-details-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem; margin-top: 3rem; margin-bottom: 0rem;">
 
         <div>
-          <h3 style="font-size: 1.35rem; font-weight: 300; margin: 0 0 1.2rem; color: #504a4a; font-family: inherit;">What is included:</h3>
+          <h3 class="m-training-kicker" style="margin: 0 0 1.2rem;">What is included:</h3>
           
           <div class="m-about-details-accordion">
-            <details>
+            <details open>
               <summary>
                 <span>1) Pre-session</span>
                 <svg class="m-details-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -971,13 +982,12 @@ body.woocommerce-checkout .wc-block-components-address-card .wc-block-components
               </div>
             </details>
 
-            <details>
+            <details open>
               <summary>
                 <span>2) 1:1 mentoring session (60 min)</span>
                 <svg class="m-details-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </summary>
               <div class="m-details-content">
-                <p style="margin: 0 0 0.5rem; color: #9d8775;">During the session:</p>
                 <ul style="list-style: none; padding-left: 1.2rem; margin: 0;">
                   <li style="margin-bottom: 0.4rem; position: relative; line-height: 1.5;">
                     <span style="position: absolute; left: -1.2rem; color: #9d8775;">-</span> Health history overview
@@ -992,7 +1002,7 @@ body.woocommerce-checkout .wc-block-components-address-card .wc-block-components
               </div>
             </details>
 
-            <details>
+            <details open>
               <summary>
                 <span>3) Personalised plan</span>
                 <svg class="m-details-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -1012,7 +1022,7 @@ body.woocommerce-checkout .wc-block-components-address-card .wc-block-components
               </div>
             </details>
 
-            <details>
+            <details open>
               <summary>
                 <span>4) Follow-up support</span>
                 <svg class="m-details-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -1029,22 +1039,21 @@ body.woocommerce-checkout .wc-block-components-address-card .wc-block-components
   </section>
   <section class="m-training-focus" aria-labelledby="m-training-focus-title">
     <div class="m-training-section-head">
-      <h2 id="m-training-focus-title">What we work through</h2>
+      <h2 class="m-training-kicker" id="m-training-focus-title" style="margin: 0 0 2rem;">What we work through</h2>
     </div>
     <div class="m-training-focus-grid">
-      <div>Brain fog, fatigue and low energy</div>
-      <div>Slow digestion and bloating</div>
-      <div>Longevity</div>
-      <div>Prevention</div>
-      <div>Stress load</div>
-      <div>Nutrition structure</div>
+      <div>Brain fog, fatigue, and low energy</div>
+      <div>Digestive discomfort and bloating</div>
+      <div>Hormonal imbalance</div>
+      <div>Poor sleep and low recovery</div>
+      <div>Stress and overwhelm</div>
+      <div>Delayed recovery after physical activity</div>
     </div>
   </section>
   <section id="m-training-courses" class="m-mentoring-products m-training-catalog" aria-labelledby="m-mentoring-products-title">
     <div class="m-mentoring-products__header">
       <div>
-        <p class="m-training-kicker">Choose your path</p>
-        <h2 id="m-mentoring-products-title">Free sources</h2>
+        <h2 class="m-training-kicker" id="m-mentoring-products-title" style="margin: 0 0 2rem;">Free courses</h2>
       </div>
       <a href="/shop-site/">Back to shop</a>
     </div>
