@@ -1,0 +1,99 @@
+<div class="m-booking-widget">
+  <div class="m-booking-steps">
+    <div class="m-booking-step active" data-step="1">
+      <span class="m-booking-step-number">1</span>
+      <span class="m-booking-step-label">Date & Time</span>
+    </div>
+    <div class="m-booking-step" data-step="2">
+      <span class="m-booking-step-number">2</span>
+      <span class="m-booking-step-label">Your Info</span>
+    </div>
+    <div class="m-booking-step" data-step="3">
+      <span class="m-booking-step-number">3</span>
+      <span class="m-booking-step-label">Confirm</span>
+    </div>
+  </div>
+
+  <div class="m-booking-content">
+    <div class="m-booking-panel active" data-panel="1">
+      <p class="m-booking-instruction">Select a date and time for your session:</p>
+      
+      <div class="m-booking-dates">
+        <button class="m-booking-date-btn" data-date="2026-07-08">Wed, Jul 08</button>
+        <button class="m-booking-date-btn" data-date="2026-07-15">Wed, Jul 15</button>
+        <button class="m-booking-date-btn" data-date="2026-07-22">Wed, Jul 22</button>
+        <button class="m-booking-date-btn" data-date="2026-07-29">Wed, Jul 29</button>
+        <button class="m-booking-date-btn" data-date="2026-08-05">Wed, Aug 05</button>
+        <button class="m-booking-date-btn" data-date="2026-08-12">Wed, Aug 12</button>
+      </div>
+
+      <div class="m-booking-times" style="display: none;">
+        <p class="m-booking-times-label">Available times:</p>
+        <div class="m-booking-time-grid">
+          <button class="m-booking-time-btn" data-time="11:00">11:00</button>
+          <button class="m-booking-time-btn" data-time="12:00">12:00</button>
+          <button class="m-booking-time-btn" data-time="13:00">13:00</button>
+          <button class="m-booking-time-btn" data-time="14:00">14:00</button>
+          <button class="m-booking-time-btn" data-time="15:00">15:00</button>
+          <button class="m-booking-time-btn" data-time="16:00">16:00</button>
+          <button class="m-booking-time-btn" data-time="17:00">17:00</button>
+          <button class="m-booking-time-btn" data-time="18:00">18:00</button>
+        </div>
+      </div>
+
+      <button class="m-booking-next-btn" disabled>Continue</button>
+    </div>
+
+    <div class="m-booking-panel" data-panel="2">
+      <h3>Your Information</h3>
+      <form class="m-booking-form">
+        <div class="m-booking-field">
+          <label>Full Name *</label>
+          <input type="text" name="name" required>
+        </div>
+        <div class="m-booking-field">
+          <label>Email *</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="m-booking-field">
+          <label>Phone</label>
+          <input type="tel" name="phone">
+        </div>
+        <div class="m-booking-field">
+          <label>What would you like to focus on?</label>
+          <textarea name="goals" rows="4" placeholder="Nutrition, stress, sleep, energy, etc."></textarea>
+        </div>
+      </form>
+      <div class="m-booking-actions">
+        <button class="m-booking-back-btn">Back</button>
+        <button class="m-booking-next-btn" disabled>Continue</button>
+      </div>
+    </div>
+
+    <div class="m-booking-panel" data-panel="3">
+      <h3>Confirm Your Booking</h3>
+      <div class="m-booking-summary">
+        <div class="m-booking-summary-row">
+          <span>Date:</span>
+          <span class="m-booking-summary-value" data-summary-date>-</span>
+        </div>
+        <div class="m-booking-summary-row">
+          <span>Time:</span>
+          <span class="m-booking-summary-value" data-summary-time>-</span>
+        </div>
+        <div class="m-booking-summary-row">
+          <span>Session:</span>
+          <span class="m-booking-summary-value">Integrative Nutrition & Wellness Mentoring (60 min)</span>
+        </div>
+        <div class="m-booking-summary-row">
+          <span>Price:</span>
+          <span class="m-booking-summary-value">$130.00</span>
+        </div>
+      </div>
+      <div class="m-booking-actions">
+        <button class="m-booking-back-btn">Back</button>
+        <button class="m-booking-confirm-btn">Add to Cart & Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2321,4 +2321,118 @@
     });
     observer.observe(ameliaWidget, { childList: true, subtree: true });
   }
+
+  // Custom booking widget
+  const bookingWidgets = document.querySelectorAll(".m-booking-widget");
+  bookingWidgets.forEach((widget) => {
+    let selectedDate = null;
+    let selectedTime = null;
+
+    const dateBtns = widget.querySelectorAll(".m-booking-date-btn");
+    const timeBtns = widget.querySelectorAll(".m-booking-time-btn");
+    const timePanel = widget.querySelector(".m-booking-times");
+    const nextBtns = widget.querySelectorAll(".m-booking-next-btn");
+    const backBtns = widget.querySelectorAll(".m-booking-back-btn");
+    const confirmBtn = widget.querySelector(".m-booking-confirm-btn");
+    const form = widget.querySelector(".m-booking-form");
+
+    dateBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        dateBtns.forEach((b) => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        selectedDate = btn.dataset.date;
+        timePanel.style.display = "block";
+        updateNextButton();
+      });
+    });
+
+    timeBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        timeBtns.forEach((b) => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        selectedTime = btn.dataset.time;
+        updateNextButton();
+      });
+    });
+
+    function updateNextButton() {
+      nextBtns.forEach((btn) => {
+        if (btn.closest('[data-panel="1"]')) {
+          btn.disabled = !(selectedDate && selectedTime);
+        }
+      });
+    }
+
+    nextBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const currentPanel = widget.querySelector(".m-booking-panel.active");
+        const currentStep = parseInt(currentPanel.dataset.panel);
+        const nextPanel = widget.querySelector(`[data-panel="${currentStep + 1}"]`);
+        const nextStep = widget.querySelector(`[data-step="${currentStep + 1}"]`);
+
+        if (currentStep === 1 && form) {
+          const nameInput = form.querySelector('[name="name"]');
+          const emailInput = form.querySelector('[name="email"]');
+          if (nameInput && emailInput) {
+            if (!nameInput.value.trim() || !emailInput.value.trim()) {
+              nameInput.reportValidity();
+              emailInput.reportValidity();
+              return;
+            }
+          }
+        }
+
+        if (nextPanel && nextStep) {
+          currentPanel.classList.remove("active");
+          nextPanel.classList.add("active");
+          widget.querySelectorAll(".m-booking-step").forEach((s) => s.classList.remove("active"));
+          nextStep.classList.add("active");
+
+          if (currentStep + 1 === 3) {
+            const dateValue = widget.querySelector('[data-summary-date]');
+            const timeValue = widget.querySelector('[data-summary-time]');
+            if (dateValue) dateValue.textContent = selectedDate ? new Date(selectedDate).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : '-';
+            if (timeValue) timeValue.textContent = selectedTime || '-';
+          }
+        }
+      });
+    });
+
+    backBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const currentPanel = widget.querySelector(".m-booking-panel.active");
+        const currentStep = parseInt(currentPanel.dataset.panel);
+        const prevPanel = widget.querySelector(`[data-panel="${currentStep - 1}"]`);
+        const prevStep = widget.querySelector(`[data-step="${currentStep - 1}"]`);
+
+        if (prevPanel && prevStep) {
+          currentPanel.classList.remove("active");
+          prevPanel.classList.add("active");
+          widget.querySelectorAll(".m-booking-step").forEach((s) => s.classList.remove("active"));
+          prevStep.classList.add("active");
+        }
+      });
+    });
+
+    if (confirmBtn) {
+      confirmBtn.addEventListener("click", () => {
+        const formData = form ? new FormData(form) : null;
+        const bookingData = {
+          date: selectedDate,
+          time: selectedTime,
+          name: formData?.get("name") || "",
+          email: formData?.get("email") || "",
+          phone: formData?.get("phone") || "",
+          goals: formData?.get("goals") || "",
+        };
+
+        // Add to cart via WooCommerce
+        const addToCartForm = document.querySelector("form.cart");
+        if (addToCartForm) {
+          const submitBtn = addToCartForm.querySelector('button[type="submit"]');
+          if (submitBtn) submitBtn.click();
+        }
+      });
+    }
+  });
 })();
