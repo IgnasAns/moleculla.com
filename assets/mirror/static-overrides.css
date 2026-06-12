@@ -3154,8 +3154,8 @@ body {
 
 .m-booking-time-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.75rem;
   margin-bottom: 1.5rem;
 }
 
@@ -3165,10 +3165,11 @@ body {
   border-radius: 6px;
   color: #504a4a;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 500;
-  padding: 0.75rem;
+  padding: 1rem 0.5rem;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .m-booking-time-btn:hover {
