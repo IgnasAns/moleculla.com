@@ -2348,17 +2348,22 @@
 
     timeBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
+        console.log("Time button clicked:", btn.dataset.time);
         timeBtns.forEach((b) => b.classList.remove("selected"));
         btn.classList.add("selected");
         selectedTime = btn.dataset.time;
+        console.log("Selected time:", selectedTime, "Selected date:", selectedDate);
         updateNextButton();
       });
     });
 
     function updateNextButton() {
+      console.log("updateNextButton called - date:", selectedDate, "time:", selectedTime);
       nextBtns.forEach((btn) => {
         if (btn.closest('[data-panel="1"]')) {
-          btn.disabled = !(selectedDate && selectedTime);
+          const shouldDisable = !(selectedDate && selectedTime);
+          btn.disabled = shouldDisable;
+          console.log("Next button disabled:", shouldDisable);
         }
       });
     }

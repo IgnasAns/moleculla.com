@@ -3126,18 +3126,21 @@ body {
 
 .m-booking-date-btn {
   background: #f5f5f5;
-  border: 2px solid transparent;
-  border-radius: 6px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
   color: #504a4a;
   cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: 500;
-  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.85rem 1.25rem;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .m-booking-date-btn:hover {
   background: #ebebeb;
+  border-color: #999;
+  transform: translateY(-1px);
 }
 
 .m-booking-date-btn.selected {
@@ -3154,26 +3157,32 @@ body {
 
 .m-booking-time-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   gap: 0.75rem;
   margin-bottom: 1.5rem;
 }
 
 .m-booking-time-btn {
   background: #f5f5f5;
-  border: 2px solid transparent;
-  border-radius: 6px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
   color: #504a4a;
   cursor: pointer;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 1rem 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 1rem 0.75rem;
   transition: all 0.2s ease;
   white-space: nowrap;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .m-booking-time-btn:hover {
   background: #ebebeb;
+  border-color: #999;
+  transform: translateY(-1px);
 }
 
 .m-booking-time-btn.selected {
@@ -3189,22 +3198,26 @@ body {
   border-radius: 40px;
   color: #ddb999;
   cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 0.75rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.9rem 2.5rem;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
   transition: all 0.2s ease;
+  margin-top: 0.5rem;
 }
 
 .m-booking-next-btn:hover:not(:disabled),
 .m-booking-confirm-btn:hover:not(:disabled) {
   background: #3f3939;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(80, 74, 74, 0.3);
 }
 
 .m-booking-next-btn:disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 0.4;
+  background: #999;
 }
 
 .m-booking-back-btn {
