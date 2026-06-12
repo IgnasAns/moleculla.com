@@ -2806,10 +2806,6 @@ body.custom-modal-open {
   }
 }
 
-.m-training-opening {
-  position: relative;
-}
-
 .m-product-listing {
   display: flex;
   flex-direction: column;
