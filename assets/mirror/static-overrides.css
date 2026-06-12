@@ -2809,8 +2809,9 @@ body.custom-modal-open {
 
 .m-training-opening__media .m-product-image-buttons {
   position: absolute;
-  bottom: 1.2rem;
-  left: 1.2rem;
+  bottom: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
@@ -2857,8 +2858,7 @@ body.custom-modal-open {
 
 @media (max-width: 600px) {
   .m-training-opening__media .m-product-image-buttons {
-    left: 0.6rem;
-    bottom: 0.6rem;
+    bottom: -2.5rem;
   }
 }
 
