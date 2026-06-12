@@ -1310,6 +1310,16 @@ body.postid-825 .m-booking-flow {
   max-width: 95% !important;
 }
 
+/* Hide Amelia widget completely */
+.amelia-v2-booking,
+.amelia-booking-container,
+[id^="amelia-v2-booking"] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
 .woocommerce-product-gallery__wrapper {
   display: block !important;
 }
