@@ -1445,9 +1445,10 @@
 
   function enhanceProductImageButtons() {
     document.querySelectorAll(".woocommerce-product-gallery").forEach((gallery) => {
-      if (gallery.querySelector(".m-product-image-buttons")) return;
+      if (gallery.closest(".wp-block-column")?.querySelector(".m-product-image-buttons")) return;
+      const column = gallery.closest(".wp-block-column");
       const form = gallery.closest(".wp-block-columns")?.querySelector("form.cart");
-      if (!form) return;
+      if (!form || !column) return;
 
       const addButton = form.querySelector(".single_add_to_cart_button");
       if (!addButton) return;
@@ -1483,7 +1484,7 @@
       });
       container.appendChild(buyBtn);
 
-      gallery.appendChild(container);
+      column.appendChild(container);
     });
   }
 

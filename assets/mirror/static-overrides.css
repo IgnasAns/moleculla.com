@@ -2807,15 +2807,12 @@ body.custom-modal-open {
 }
 
 .m-product-image-buttons {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  width: calc(100% - 3rem);
-  max-width: 280px;
+  width: 100%;
+  padding: 1rem 0;
   z-index: 10;
 }
 
@@ -2856,15 +2853,9 @@ body.custom-modal-open {
   transform: translateY(-1px);
 }
 
-.woocommerce-product-gallery {
-  position: relative;
-}
-
 @media (max-width: 600px) {
   .m-product-image-buttons {
-    bottom: 1rem;
-    width: calc(100% - 2rem);
-    max-width: none;
+    padding: 0.75rem 0;
   }
 }
 
