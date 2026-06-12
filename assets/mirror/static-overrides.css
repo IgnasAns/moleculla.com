@@ -3211,8 +3211,7 @@ body {
 }
 
 .m-booking-time-btn:focus {
-  outline: 2px solid #504a4a !important;
-  outline-offset: 2px !important;
+  outline: none !important;
   color: #504a4a !important;
 }
 
@@ -3233,6 +3232,7 @@ body {
   outline: 2px solid #3f3939 !important;
   outline-offset: 2px !important;
   color: #ffffff !important;
+  background: #504a4a !important;
 }
 
 .m-booking-next-btn,

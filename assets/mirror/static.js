@@ -2363,8 +2363,26 @@
         if (btn.closest('[data-panel="1"]')) {
           const shouldDisable = !(selectedDate && selectedTime);
           btn.disabled = shouldDisable;
-          console.log("Next button disabled:", shouldDisable);
+          console.log("Panel 1 next button disabled:", shouldDisable);
         }
+      });
+    }
+
+    function updateStep2Button() {
+      const panel2Btn = widget.querySelector('[data-panel="2"] .m-booking-next-btn');
+      if (!panel2Btn || !form) return;
+      const nameInput = form.querySelector('[name="name"]');
+      const emailInput = form.querySelector('[name="email"]');
+      const nameValid = nameInput && nameInput.value.trim().length > 0;
+      const emailValid = emailInput && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
+      panel2Btn.disabled = !(nameValid && emailValid);
+      console.log("Panel 2 next button disabled:", panel2Btn.disabled, "name:", nameValid, "email:", emailValid);
+    }
+
+    if (form) {
+      form.querySelectorAll('input, textarea').forEach((input) => {
+        input.addEventListener('input', updateStep2Button);
+        input.addEventListener('change', updateStep2Button);
       });
     }
 
@@ -2375,24 +2393,15 @@
         const nextPanel = widget.querySelector(`[data-panel="${currentStep + 1}"]`);
         const nextStep = widget.querySelector(`[data-step="${currentStep + 1}"]`);
 
-        // Validate form when moving from step 2 to step 3
-        if (currentStep === 2 && form) {
-          const nameInput = form.querySelector('[name="name"]');
-          const emailInput = form.querySelector('[name="email"]');
-          if (nameInput && emailInput) {
-            if (!nameInput.value.trim() || !emailInput.value.trim()) {
-              nameInput.reportValidity();
-              emailInput.reportValidity();
-              return;
-            }
-          }
-        }
-
         if (nextPanel && nextStep) {
           currentPanel.classList.remove("active");
           nextPanel.classList.add("active");
           widget.querySelectorAll(".m-booking-step").forEach((s) => s.classList.remove("active"));
           nextStep.classList.add("active");
+
+          if (currentStep + 1 === 2) {
+            updateStep2Button();
+          }
 
           if (currentStep + 1 === 3) {
             const dateValue = widget.querySelector('[data-summary-date]');
