@@ -1880,19 +1880,11 @@
     const formBlock = form.closest(".wp-block-add-to-cart-form");
     const productColumns = form.closest(".wp-block-columns");
     const productSummaryColumn = form.closest(".wp-block-column");
-    const placeholder = document.querySelector("#amelia-v2-booking-1000");
-    const placeholderTarget = placeholder?.closest("p") && placeholder.closest("p").textContent.trim() === ""
-      ? placeholder.closest("p")
-      : placeholder;
 
     if (productSummaryColumn && productColumns) {
       productSummaryColumn.appendChild(booking);
-      placeholderTarget?.remove();
     } else if (formBlock) {
       formBlock.after(booking);
-      placeholderTarget?.remove();
-    } else if (placeholderTarget) {
-      placeholderTarget.replaceWith(booking);
     } else {
       document.querySelector("main")?.prepend(booking);
     }
@@ -2301,23 +2293,6 @@
   captureAuthSessionFromHash();
   renderAccountDashboard();
   renderPasswordRecoveryPage();
-
-  const ameliaWidget = document.querySelector(".amelia-v2-booking");
-  if (ameliaWidget) {
-    const observer = new MutationObserver(() => {
-      const shadow = ameliaWidget.shadowRoot;
-      if (!shadow) return;
-      const wrapper = shadow.querySelector("step-form-wrapper");
-      if (!wrapper) return;
-      observer.disconnect();
-      const container = document.createElement("div");
-      container.className = "m-amelia-container";
-      container.style.cssText = "position: relative; width: 100%; overflow-x: auto;";
-      ameliaWidget.parentNode.insertBefore(container, ameliaWidget);
-      container.appendChild(ameliaWidget);
-    });
-    observer.observe(ameliaWidget, { childList: true, subtree: true });
-  }
 
   // Custom booking widget
   const bookingWidgets = document.querySelectorAll(".m-booking-widget");

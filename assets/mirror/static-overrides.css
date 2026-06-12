@@ -1310,16 +1310,6 @@ body.postid-825 .m-booking-flow {
   max-width: 95% !important;
 }
 
-/* Hide Amelia widget completely */
-.amelia-v2-booking,
-.amelia-booking-container,
-[id^="amelia-v2-booking"] {
-  display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  overflow: hidden !important;
-}
-
 .woocommerce-product-gallery__wrapper {
   display: block !important;
 }
@@ -2823,34 +2813,34 @@ body.custom-modal-open {
 }
 
 .m-product-listing {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  gap: 0.15rem !important;
-  padding: 0.4rem 2rem !important;
-  width: 100% !important;
-  text-align: center !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  width: 100%;
+  text-align: center;
 }
 
 .m-product-listing__title {
-  font-size: 0.8rem !important;
-  font-weight: 500 !important;
-  color: #504a4a !important;
-  margin: 0 !important;
-  line-height: 1.3 !important;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #504a4a;
+  margin: 0;
+  line-height: 1.3;
 }
 
 .m-product-listing__price {
-  font-size: 0.8rem !important;
-  font-weight: 600 !important;
-  color: #9d8775 !important;
-  margin: 0 !important;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #9d8775;
+  margin: 0;
 }
 
 .m-product-image-buttons {
   display: flex;
   flex-direction: row;
-  gap: 0.4rem;
+  gap: 0.6rem;
   width: auto;
   white-space: nowrap;
 }
@@ -2863,10 +2853,10 @@ body.custom-modal-open {
   width: auto;
   text-align: center;
   border-radius: 999px;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  padding: 0.4rem 0.9rem;
+  padding: 0.6rem 1.2rem;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
   text-decoration: none;
@@ -2902,7 +2892,7 @@ body.custom-modal-open {
   .m-product-image-buttons__cart,
   .m-product-image-buttons__buy {
     font-size: 0.7rem;
-    padding: 0.6rem 1.1rem;
+    padding: 0.5rem 1rem;
   }
 }
 
