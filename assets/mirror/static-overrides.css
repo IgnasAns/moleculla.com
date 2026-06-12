@@ -2650,7 +2650,7 @@ body.custom-modal-open {
 
 .m-guide-lead {
   color: #504a4a;
-  margin: 2.5rem auto 4rem;
+  margin: 1.5rem auto 2.5rem;
   max-width: 840px;
   text-align: center;
 }
@@ -2658,7 +2658,7 @@ body.custom-modal-open {
 .m-guide-lead > p {
   font-size: clamp(1rem, 1.35vw, 1.25rem);
   line-height: 1.55;
-  margin: 0 auto 3rem;
+  margin: 0 auto 2rem;
   max-width: 760px;
 }
 
@@ -2667,14 +2667,14 @@ body.custom-modal-open {
   font-size: clamp(1rem, 1.2vw, 1.15rem);
   font-weight: 300;
   line-height: 1.45;
-  margin: 0 0 1.3rem;
+  margin: 0 0 1rem;
 }
 
 .m-guide-lead-form {
   display: grid;
-  gap: 1rem;
+  gap: 0.75rem;
   margin: 0 auto;
-  max-width: 625px;
+  max-width: 400px;
 }
 
 .m-guide-lead-form input[type="email"] {
@@ -2684,8 +2684,9 @@ body.custom-modal-open {
   box-sizing: border-box;
   color: #fff;
   font: inherit;
-  min-height: 3.65rem;
-  padding: 0.9rem 2rem;
+  font-size: 0.9rem;
+  min-height: 2.8rem;
+  padding: 0.6rem 1.5rem;
   width: 100%;
 }
 
@@ -2710,9 +2711,10 @@ body.custom-modal-open {
   cursor: pointer;
   display: inline-flex;
   font: inherit;
+  font-size: 0.9rem;
   justify-content: center;
-  min-height: 3.65rem;
-  padding: 0.9rem 2rem;
+  min-height: 2.8rem;
+  padding: 0.6rem 1.5rem;
   text-decoration: none;
   text-transform: uppercase;
   transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
