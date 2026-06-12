@@ -1306,6 +1306,25 @@ body.postid-825 .m-booking-flow {
   position: relative !important;
 }
 
+.wp-block-columns.alignwide .wp-block-column {
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+.wp-block-columns.alignwide .wp-block-column:first-child {
+  flex-shrink: 0 !important;
+}
+
+.wp-block-columns.alignwide .wp-block-column:last-child {
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+}
+
+.amelia-v2-booking,
+.amelia-v2-booking * {
+  box-sizing: border-box !important;
+}
+
 .woocommerce-product-gallery__wrapper {
   display: block !important;
 }
