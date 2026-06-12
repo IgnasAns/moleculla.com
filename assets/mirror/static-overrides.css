@@ -1319,18 +1319,30 @@ body.postid-825 .m-booking-flow {
   min-width: 0 !important;
 }
 
-.amelia-v2-booking,
-.amelia-v2-booking * {
-  box-sizing: border-box !important;
-}
-
 .single-product .wp-container-core-group-is-layout-8a400663 > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
-  max-width: 90% !important;
+  max-width: 95% !important;
 }
 
-.amelia-v2-booking .step-form-wrapper {
+.amelia-v2-booking {
   overflow-x: auto !important;
-  max-width: 100% !important;
+  overflow-y: visible !important;
+  width: 100% !important;
+}
+
+.amelia-v2-booking step-form-wrapper {
+  display: block !important;
+  min-width: 100% !important;
+  width: max-content !important;
+}
+
+@media (max-width: 900px) {
+  .wp-block-columns.alignwide {
+    flex-wrap: wrap !important;
+  }
+  .wp-block-columns.alignwide .wp-block-column {
+    flex-basis: 100% !important;
+    max-width: 100% !important;
+  }
 }
 
 .woocommerce-product-gallery__wrapper {
