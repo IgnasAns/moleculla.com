@@ -1489,6 +1489,24 @@
     });
   }
 
+  function enhanceMentoringPageButtons() {
+    const container = document.querySelector(".m-training-opening__media .m-product-image-buttons");
+    if (!container) return;
+    const cartBtn = container.querySelector(".m-product-image-buttons__cart");
+    const buyBtn = container.querySelector(".m-product-image-buttons__buy");
+    if (cartBtn) {
+      cartBtn.addEventListener("click", () => {
+        addToCart(825);
+      });
+    }
+    if (buyBtn) {
+      buyBtn.addEventListener("click", () => {
+        addToCart(825);
+        window.location.href = localCheckoutUrl();
+      });
+    }
+  }
+
   function enhanceProductGalleries() {
     document.querySelectorAll(".woocommerce-product-gallery").forEach((gallery) => {
       if (gallery.querySelector(".m-static-gallery-thumbs")) return;
@@ -2201,6 +2219,7 @@
   enhanceMentoringBooking();
   enhanceBuyNowButtons();
   enhanceProductImageButtons();
+  enhanceMentoringPageButtons();
   enhanceProductGalleries();
   enhanceRouletteCarousels();
   renderCartCount();

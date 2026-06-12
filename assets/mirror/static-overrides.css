@@ -318,6 +318,7 @@
   background-position: center;
   background-size: cover;
   min-height: 520px;
+  position: relative;
 }
 
 .m-training-kicker,
