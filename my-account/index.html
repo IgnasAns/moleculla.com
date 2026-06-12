@@ -511,7 +511,9 @@ ul li {
 /* Hide specific nav items and notices */
 .woocommerce-MyAccount-navigation-link--downloads,
 .woocommerce-MyAccount-navigation-link--dashboard,
-body.woocommerce-account .woocommerce-notices-wrapper {
+body.woocommerce-account .woocommerce-notices-wrapper > .woocommerce-message,
+body.woocommerce-account .woocommerce-notices-wrapper > .woocommerce-info,
+body.woocommerce-account .woocommerce-notices-wrapper > .woocommerce-error {
     display: none !important;
 }
 
