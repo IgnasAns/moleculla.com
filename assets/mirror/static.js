@@ -1537,25 +1537,18 @@
   }
 
   function enhanceMentoringPageButtons() {
-    const container = document.querySelector(".m-product-listing .m-product-image-buttons");
-    if (!container) return;
-    const cartBtn = container.querySelector(".m-product-image-buttons__cart");
-    const buyBtn = container.querySelector(".m-product-image-buttons__buy");
-    const bookingWidget = document.querySelector(".m-booking-widget");
-    if (cartBtn) {
-      cartBtn.addEventListener("click", () => {
-        if (bookingWidget) {
-          bookingWidget.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      });
-    }
-    if (buyBtn) {
-      buyBtn.addEventListener("click", () => {
-        if (bookingWidget) {
-          bookingWidget.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      });
-    }
+    const productUrl = "/product/integrative-nutrition-and-wellness-mentoring-session/";
+    document.addEventListener("click", (e) => {
+      const target = e.target.closest(".m-product-image-buttons__cart, .m-product-image-buttons__buy");
+      if (!target) return;
+      const container = target.closest(".m-product-listing");
+      if (!container) return;
+      e.stopImmediatePropagation();
+      if (target.tagName !== "A" || target.getAttribute("href") !== productUrl) {
+        e.preventDefault();
+        window.location.href = productUrl;
+      }
+    }, true);
   }
 
   function enhanceProductGalleries() {

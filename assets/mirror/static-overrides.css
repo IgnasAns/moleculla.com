@@ -2857,6 +2857,9 @@ body.custom-modal-open {
 
 .m-product-image-buttons__cart,
 .m-product-image-buttons__buy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: auto;
   text-align: center;
   border-radius: 999px;
