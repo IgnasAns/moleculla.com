@@ -1306,14 +1306,18 @@ body.postid-825 .m-booking-flow {
   position: relative !important;
 }
 
-.single-product .wp-block-columns.alignwide .wp-block-column:first-child {
-  flex-shrink: 0 !important;
+.single-product .wp-block-columns.alignwide {
+  flex-wrap: wrap !important;
 }
 
-.single-product .wp-block-columns.alignwide .wp-block-column:last-child {
-  flex: 1 1 auto !important;
-  min-width: 0 !important;
-  overflow-x: auto !important;
+.single-product .wp-block-columns.alignwide .wp-block-column {
+  flex-basis: 100% !important;
+  max-width: 100% !important;
+}
+
+.single-product .wp-block-columns.alignwide .wp-block-column:first-child {
+  max-width: 400px !important;
+  margin-bottom: 2rem !important;
 }
 
 .single-product .wp-container-core-group-is-layout-8a400663 > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
@@ -1322,24 +1326,6 @@ body.postid-825 .m-booking-flow {
 
 .amelia-v2-booking {
   width: 100% !important;
-  min-width: 700px !important;
-}
-
-@media (max-width: 900px) {
-  .single-product .wp-block-columns.alignwide {
-    flex-wrap: wrap !important;
-    gap: 2rem !important;
-  }
-  .single-product .wp-block-columns.alignwide .wp-block-column {
-    flex-basis: 100% !important;
-    max-width: 100% !important;
-  }
-  .single-product .wp-block-columns.alignwide .wp-block-column:last-child {
-    overflow-x: visible !important;
-  }
-  .amelia-v2-booking {
-    min-width: 100% !important;
-  }
 }
 
 .woocommerce-product-gallery__wrapper {
