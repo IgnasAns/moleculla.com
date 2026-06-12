@@ -2441,12 +2441,27 @@
           goals: formData?.get("goals") || "",
         };
 
-        // Add to cart via WooCommerce
-        const addToCartForm = document.querySelector("form.cart");
-        if (addToCartForm) {
-          const submitBtn = addToCartForm.querySelector('button[type="submit"]');
-          if (submitBtn) submitBtn.click();
-        }
+        // Format date for display
+        const dateObj = new Date(selectedDate);
+        const dateLabel = dateObj.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+        // Add to cart with booking options
+        const options = {
+          "Appointment": `${dateLabel} at ${selectedTime}`,
+          "Name": bookingData.name,
+          "Email": bookingData.email,
+          "Phone": bookingData.phone,
+          "Focus Areas": bookingData.goals,
+        };
+
+        addToCart(825, 1, options);
+
+        // Show success message
+        confirmBtn.textContent = "Added to Cart!";
+        confirmBtn.disabled = true;
+        setTimeout(() => {
+          window.location.href = "/checkout/";
+        }, 1000);
       });
     }
   });
