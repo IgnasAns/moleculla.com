@@ -2889,4 +2889,141 @@ body.custom-modal-open {
   }
 }
 
+/* Sticky footer - eliminate white space below footer */
+html, body {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.wp-site-blocks {
+  flex: 1 0 auto;
+}
+.m-site-footer {
+  flex-shrink: 0;
+}
+
+/* PDF download modal styles */
+.m-pdf-download-btn {
+  align-items: center;
+  background: #504a4a;
+  border: 1px solid #504a4a;
+  border-radius: 999px;
+  box-sizing: border-box;
+  color: #ddb999;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  justify-content: center;
+  min-height: 2.8rem;
+  padding: 0.6rem 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  margin: 1.5rem 0;
+}
+.m-pdf-download-btn:hover {
+  background: #3f3939;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.m-pdf-modal-form {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0 auto;
+  max-width: 400px;
+}
+.m-pdf-modal-form input[type="email"] {
+  background: #504a4a;
+  border: 1px solid #504a4a;
+  border-radius: 999px;
+  box-sizing: border-box;
+  color: #fff;
+  font: inherit;
+  font-size: 0.9rem;
+  min-height: 2.8rem;
+  padding: 0.6rem 1.5rem;
+  width: 100%;
+}
+.m-pdf-modal-form input[type="email"]::placeholder {
+  color: rgba(255, 255, 255, 0.84);
+}
+.m-pdf-modal-form input[type="email"]:focus {
+  border-color: #ddb999;
+  box-shadow: 0 0 0 3px rgba(221, 185, 153, 0.24);
+  outline: 0;
+}
+.m-pdf-modal-form button[type="submit"] {
+  align-items: center;
+  background: #504a4a;
+  border: 1px solid #504a4a;
+  border-radius: 999px;
+  box-sizing: border-box;
+  color: #ddb999;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  justify-content: center;
+  min-height: 2.8rem;
+  padding: 0.6rem 1.5rem;
+  text-transform: uppercase;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  width: 100%;
+}
+.m-pdf-modal-form button[type="submit"]:hover {
+  background: #3f3939;
+  color: #fff;
+  transform: translateY(-1px);
+}
+.m-pdf-modal-form button[type="submit"]:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+}
+.m-pdf-modal-status {
+  color: #504a4a;
+  font-size: 0.95rem;
+  margin: 0;
+  min-height: 1.4em;
+  text-align: center;
+}
+.m-pdf-modal-status.is-error {
+  color: #8f4137;
+}
+.m-pdf-modal-status.is-success {
+  color: #4f6653;
+}
+.m-pdf-download-link {
+  align-items: center;
+  background: #504a4a;
+  border: 1px solid #504a4a;
+  border-radius: 999px;
+  box-sizing: border-box;
+  color: #ddb999;
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  justify-content: center;
+  min-height: 2.8rem;
+  padding: 0.6rem 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.m-pdf-download-link:hover {
+  background: #3f3939;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
 

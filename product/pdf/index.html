@@ -940,6 +940,27 @@ body.woocommerce-checkout .wc-block-components-address-card .wc-block-components
 		<div data-block-name="woocommerce/product-description" data-font-size="small" class="wc-block-product-description wp-block-woocommerce-product-description has-small-font-size is-layout-flow wp-block-woocommerce-product-description-is-layout-flow"><p data-pm-slice="0 0 []">Balanced Hormones Cheat Sheet is a handy, downloadable PDF that guides you through key strategies for supporting hormonal balance. Inside, you'll find easy-to-follow tips based on current research. Whether you're new to hormone health or looking for a refresher, this quick-reference guide offers practical advice you can start using immediately. Download your copy now and take a simple first step toward improving your hormonal health.</p>
 </div>
 
+<div style="text-align:center;">
+  <button type="button" class="m-pdf-download-btn" data-pdf-modal-trigger data-guide-slug="hormone-balance">Download PDF Guide</button>
+</div>
+
+<div id="custom-modal-pdf-download" class="custom-modal custom-modal-medium" aria-hidden="true">
+  <div class="custom-modal-content">
+    <button type="button" class="custom-modal-close" aria-label="Close">&times;</button>
+    <div class="custom-modal-header"><h2>Download your free PDF guide</h2></div>
+    <div class="custom-modal-body">
+      <p style="text-align:center;color:#504a4a;margin:0 0 1rem;">Enter your email to receive the free hormone balance guide.</p>
+      <form class="m-pdf-modal-form" data-pdf-download-form data-guide-slug="hormone-balance" novalidate>
+        <label class="screen-reader-text" for="m-pdf-modal-email">Email address</label>
+        <input id="m-pdf-modal-email" name="email" type="email" placeholder="Email Address *" autocomplete="email" required>
+        <button type="submit">Download</button>
+        <p class="m-pdf-modal-status" data-pdf-download-status aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="custom-modal-footer"><button type="button" class="custom-modal-button">Close</button></div>
+  </div>
+</div>
+
 
 
 

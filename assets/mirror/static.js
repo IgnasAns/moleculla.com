@@ -952,6 +952,99 @@
     }
   }
 
+  function setPdfDownloadStatus(form, message, type = "") {
+    const status = form.querySelector("[data-pdf-download-status]");
+    if (!status) return;
+    status.classList.toggle("is-error", type === "error");
+    status.classList.toggle("is-success", type === "success");
+    status.textContent = message;
+  }
+
+  function setPdfDownloadBusy(form, busy) {
+    const button = form.querySelector('button[type="submit"]');
+    if (!button) return;
+    if (busy) {
+      button.dataset.originalText = button.textContent || "";
+      button.disabled = true;
+      button.textContent = "Preparing download...";
+    } else {
+      button.disabled = false;
+      button.textContent = button.dataset.originalText || "Download";
+    }
+  }
+
+  function setPdfDownloadLink(form, url) {
+    let link = form.querySelector(".m-pdf-download-link");
+    if (!link) {
+      link = document.createElement("a");
+      link.className = "m-pdf-download-link";
+      link.target = "_blank";
+      link.rel = "noopener";
+      form.querySelector("[data-pdf-download-status]")?.before(link);
+    }
+    link.href = url;
+    link.textContent = "Download guide";
+    link.hidden = false;
+    setTimeout(() => link.click(), 50);
+  }
+
+  async function handlePdfDownloadSubmit(form) {
+    const config = guideDownloadConfig();
+    const email = String(new FormData(form).get("email") || "").trim();
+    const guideSlug = form.dataset.guideSlug || "hormone-balance";
+    const fallbackUrl = String(config.fallbackUrl || "");
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setPdfDownloadStatus(form, "Please enter a valid email address.", "error");
+      return;
+    }
+
+    const endpoint = guideCaptureEndpoint(config);
+    if (!endpoint) {
+      if (fallbackUrl) {
+        setPdfDownloadStatus(form, "Supabase is not connected yet. Opening the guide directly.", "success");
+        setPdfDownloadLink(form, fallbackUrl);
+      } else {
+        setPdfDownloadStatus(form, "Supabase is not connected yet. Add the Functions URL in commerce-config.js.", "error");
+      }
+      return;
+    }
+
+    setPdfDownloadBusy(form, true);
+    setPdfDownloadStatus(form, "");
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: functionHeaders(),
+        body: JSON.stringify({
+          email,
+          guideSlug,
+          sourceUrl: window.location.href,
+          referrer: document.referrer || "",
+        }),
+      });
+      const payload = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(payload.error || "Could not prepare the guide.");
+      }
+
+      form.reset();
+      const downloadUrl = payload.guideUrl || fallbackUrl;
+      if (downloadUrl) {
+        setPdfDownloadStatus(form, "Thank you. Your guide is ready.", "success");
+        setPdfDownloadLink(form, downloadUrl);
+      } else {
+        setPdfDownloadStatus(form, "Thank you. Your email was saved; connect the guide file in Supabase Storage to enable downloads.", "success");
+      }
+    } catch (error) {
+      setPdfDownloadStatus(form, error.message || "Could not prepare the guide.", "error");
+    } finally {
+      setPdfDownloadBusy(form, false);
+    }
+  }
+
   async function handleCheckoutSubmit(form) {
     const data = Object.fromEntries(new FormData(form).entries());
     const missing = ["email", "firstName", "lastName", "country", "address", "city"].filter((name) => !String(data[name] || "").trim());
@@ -2128,6 +2221,13 @@
       return;
     }
 
+    const pdfDownloadForm = event.target.closest("[data-pdf-download-form]");
+    if (pdfDownloadForm) {
+      event.preventDefault();
+      handlePdfDownloadSubmit(pdfDownloadForm);
+      return;
+    }
+
     const checkoutForm = event.target.closest(".m-checkout-form");
     if (checkoutForm) {
       event.preventDefault();
@@ -2159,6 +2259,30 @@
     modal.setAttribute("aria-hidden", modal.classList.contains("active") ? "false" : "true");
   });
   openModalFromRequest();
+
+  // Wire up PDF download modal triggers
+  document.querySelectorAll("[data-pdf-modal-trigger]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const modal = document.getElementById("custom-modal-pdf-download");
+      if (modal) openModal(modal);
+    });
+  });
+
+  // Wire up modal close buttons
+  document.querySelectorAll(".custom-modal .custom-modal-close, .custom-modal .custom-modal-button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const modal = btn.closest(".custom-modal");
+      if (modal) closeModal(modal);
+    });
+  });
+
+  // Close modal on overlay click
+  document.querySelectorAll(".custom-modal").forEach((modal) => {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal(modal);
+    });
+  });
+
   if (useWooCommerceBackend) {
     wireWooCommerceBackend();
   } else {
