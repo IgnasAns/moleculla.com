@@ -2861,7 +2861,38 @@ body.custom-modal-open {
 }
 
 @media (max-width: 600px) {
-  .m-training-opening__media .m-product-image-buttons {
+.m-training-opening__media .m-product-listing {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 50;
+  width: auto;
+  text-align: center;
+}
+
+.m-training-opening__media .m-product-listing__title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  line-height: 1.3;
+}
+
+.m-training-opening__media .m-product-listing__price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ddb999;
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+.m-training-opening__media .m-product-image-buttons {
     bottom: -2.5rem;
     gap: 0.5rem;
   }
