@@ -2375,7 +2375,8 @@
         const nextPanel = widget.querySelector(`[data-panel="${currentStep + 1}"]`);
         const nextStep = widget.querySelector(`[data-step="${currentStep + 1}"]`);
 
-        if (currentStep === 1 && form) {
+        // Validate form when moving from step 2 to step 3
+        if (currentStep === 2 && form) {
           const nameInput = form.querySelector('[name="name"]');
           const emailInput = form.querySelector('[name="email"]');
           if (nameInput && emailInput) {

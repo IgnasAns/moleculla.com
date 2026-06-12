@@ -3210,6 +3210,12 @@ body {
   color: #504a4a !important;
 }
 
+.m-booking-time-btn:focus {
+  outline: 2px solid #504a4a !important;
+  outline-offset: 2px !important;
+  color: #504a4a !important;
+}
+
 .m-booking-time-btn.selected {
   background: #504a4a !important;
   border-color: #504a4a !important;
@@ -3220,6 +3226,12 @@ body {
 .m-booking-time-btn.selected:hover {
   background: #3f3939 !important;
   border-color: #3f3939 !important;
+  color: #ffffff !important;
+}
+
+.m-booking-time-btn.selected:focus {
+  outline: 2px solid #3f3939 !important;
+  outline-offset: 2px !important;
   color: #ffffff !important;
 }
 
