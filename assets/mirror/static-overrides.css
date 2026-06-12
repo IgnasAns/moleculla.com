@@ -115,7 +115,7 @@
 
 .ia-roulette-container:hover .ia-roulette-track,
 .ia-roulette-container:focus-within .ia-roulette-track {
-  animation-play-state: running !important;
+  animation-play-state: paused !important;
 }
 
 .ia-item {
