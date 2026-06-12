@@ -1444,7 +1444,7 @@
   }
 
   function enhanceMentoringPageButtons() {
-    const container = document.querySelector(".m-training-opening__media .m-product-image-buttons");
+    const container = document.querySelector(".m-product-listing .m-product-image-buttons");
     if (!container) return;
     const cartBtn = container.querySelector(".m-product-image-buttons__cart");
     const buyBtn = container.querySelector(".m-product-image-buttons__buy");
