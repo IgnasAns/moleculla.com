@@ -180,9 +180,9 @@
     return session?.user?.email || session?.user?.user_metadata?.email || "";
   }
 
-  function guideDownloadConfig(key = "copperDryBodyBrushing") {
+  function guideDownloadConfig(slug) {
     const downloads = commerceConfig.guideDownloads || {};
-    return downloads[key] || {};
+    return downloads[slug] || downloads[Object.keys(downloads)[0]] || {};
   }
 
   function guideCaptureEndpoint(config) {
@@ -896,9 +896,9 @@
   }
 
   async function handleGuideLeadSubmit(form) {
-    const config = guideDownloadConfig();
+    const guideSlug = form.dataset.guideSlug || "copper-dry-body-brushing";
+    const config = guideDownloadConfig(guideSlug);
     const email = String(new FormData(form).get("email") || "").trim();
-    const guideSlug = form.dataset.guideSlug || config.guideSlug || "copper-dry-body-brushing";
     const fallbackUrl = String(config.fallbackUrl || "");
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -989,9 +989,9 @@
   }
 
   async function handlePdfDownloadSubmit(form) {
-    const config = guideDownloadConfig();
-    const email = String(new FormData(form).get("email") || "").trim();
     const guideSlug = form.dataset.guideSlug || "hormone-balance";
+    const config = guideDownloadConfig(guideSlug);
+    const email = String(new FormData(form).get("email") || "").trim();
     const fallbackUrl = String(config.fallbackUrl || "");
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
