@@ -1443,52 +1443,6 @@
     });
   }
 
-  function enhanceProductImageButtons() {
-    document.querySelectorAll(".woocommerce-product-gallery").forEach((gallery) => {
-      if (gallery.closest(".wp-block-column")?.querySelector(".m-product-image-buttons")) return;
-      const column = gallery.closest(".wp-block-column");
-      const form = gallery.closest(".wp-block-columns")?.querySelector("form.cart");
-      if (!form || !column) return;
-
-      const addButton = form.querySelector(".single_add_to_cart_button");
-      if (!addButton) return;
-      const productId = addButton.value || formProductId(form, addButton);
-      const product = products[String(productId)];
-      if (!product) return;
-
-      const container = document.createElement("div");
-      container.className = "m-product-image-buttons";
-
-      const cartBtn = document.createElement("button");
-      cartBtn.type = "button";
-      cartBtn.className = "m-product-image-buttons__cart wp-element-button";
-      cartBtn.dataset.product_id = productId;
-      cartBtn.textContent = "ADD TO CART";
-      cartBtn.addEventListener("click", () => {
-        const handled = addFromForm(form, cartBtn);
-        if (!handled) addToCart(productId);
-      });
-      container.appendChild(cartBtn);
-
-      const buyBtn = document.createElement("button");
-      buyBtn.type = "button";
-      buyBtn.className = "m-product-image-buttons__buy wp-element-button";
-      buyBtn.dataset.product_id = productId;
-      buyBtn.textContent = "BUY NOW";
-      buyBtn.addEventListener("click", () => {
-        const handled = buyNowFromForm(form, buyBtn);
-        if (!handled) {
-          addToCart(productId);
-          window.location.href = localCheckoutUrl();
-        }
-      });
-      container.appendChild(buyBtn);
-
-      column.style.position = "relative";
-      column.appendChild(container);
-    });
-  }
-
   function enhanceMentoringPageButtons() {
     const container = document.querySelector(".m-training-opening__media .m-product-image-buttons");
     if (!container) return;
@@ -2218,7 +2172,6 @@
   enhanceHeaderLogoFallback();
   enhanceMentoringBooking();
   enhanceBuyNowButtons();
-  enhanceProductImageButtons();
   enhanceMentoringPageButtons();
   enhanceProductGalleries();
   enhanceRouletteCarousels();
