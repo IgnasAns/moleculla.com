@@ -1055,8 +1055,10 @@
       <p>${email ? `You are signed in as <strong>${escapeHtml(email)}</strong>.` : "You are signed in."}</p>
       <div class="m-account-dashboard__actions">
         <a class="m-primary-action" href="/shop/">Shop</a>
-        <a class="m-secondary-action" href="/cart/">View cart</a>
-        <a class="m-secondary-action" href="/my-account/lost-password/">Change password</a>
+        <div class="m-secondary-row">
+          <a class="m-secondary-action" href="/cart/">View cart</a>
+          <a class="m-secondary-action" href="/my-account/lost-password/">Change password</a>
+        </div>
         <button type="button" class="m-secondary-action" data-auth-signout>Sign out</button>
       </div>
     `;

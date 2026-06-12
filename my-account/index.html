@@ -542,8 +542,8 @@ body.woocommerce-account main.wp-block-group > .wp-block-group.alignfull { paddi
 }
 
 /* Fix gap below footer */
-body.woocommerce-account .m-site-footer ~ * { display: none !important; }
-body.woocommerce-account .m-site-footer + .wp-block-template-part { display: none !important; }
+footer.wp-block-template-part:empty { display: none !important; }
+.wc-block-components-drawer__screen-overlay { display: none !important; }
 
 /* Container Padding */
 main.wp-block-group { padding-left: 60px !important; padding-right: 60px !important; }
@@ -598,18 +598,41 @@ main.wp-block-group { padding-left: 60px !important; padding-right: 60px !import
 }
 .m-account-dashboard p { font-size: 1rem; line-height: 1.65; margin: 0; }
 .m-account-dashboard__actions {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
+  display: grid;
+  gap: 0.75rem;
   margin-top: 1.5rem;
 }
-.m-account-dashboard__actions .m-primary-action,
-.m-account-dashboard__actions .m-secondary-action { min-width: 9.5rem; }
+.m-account-dashboard__actions .m-primary-action {
+  width: 100%;
+  min-height: 3rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.m-account-dashboard__actions .m-secondary-row {
+  display: flex;
+  gap: 0.75rem;
+}
+.m-account-dashboard__actions .m-secondary-row .m-secondary-action {
+  flex: 1;
+  min-height: 2.75rem;
+}
 .m-account-dashboard__actions button.m-secondary-action {
+  background: transparent;
+  border: 1px solid rgba(80, 74, 74, 0.35);
+  border-radius: 999px;
+  color: #6f6868;
   cursor: pointer;
   font-family: inherit;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
+  padding: 0.5rem 1.25rem;
+  text-decoration: none;
+  width: 100%;
+}
+.m-account-dashboard__actions button.m-secondary-action:hover {
+  background: #504a4a;
+  color: #fff;
+  border-color: #504a4a;
 }
 
 /* Account Responsive */
