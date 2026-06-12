@@ -2810,14 +2810,14 @@ body.custom-modal-open {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.3rem;
-  padding: 0.8rem 2rem;
+  gap: 0.15rem;
+  padding: 0.4rem 2rem;
   width: 100%;
   text-align: center;
 }
 
 .m-product-listing__title {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: #504a4a;
   margin: 0;
@@ -2825,7 +2825,7 @@ body.custom-modal-open {
 }
 
 .m-product-listing__price {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: #9d8775;
   margin: 0;
@@ -2834,7 +2834,7 @@ body.custom-modal-open {
 .m-product-image-buttons {
   display: flex;
   flex-direction: row;
-  gap: 0.5rem;
+  gap: 0.4rem;
   width: auto;
   white-space: nowrap;
 }
@@ -2844,10 +2844,10 @@ body.custom-modal-open {
   width: auto;
   text-align: center;
   border-radius: 999px;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  padding: 0.55rem 1.1rem;
+  padding: 0.4rem 0.9rem;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
   text-decoration: none;
