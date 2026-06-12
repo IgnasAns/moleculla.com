@@ -1316,16 +1316,22 @@ body.postid-825 .m-booking-flow {
 }
 
 .single-product .wp-block-columns.alignwide .wp-block-column:first-child {
-  max-width: 400px !important;
-  margin-bottom: 2rem !important;
+  max-width: 350px !important;
+  margin-bottom: 1rem !important;
 }
 
 .single-product .wp-container-core-group-is-layout-8a400663 > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
   max-width: 95% !important;
 }
 
+.m-amelia-container {
+  width: 100% !important;
+  overflow-x: auto !important;
+}
+
 .amelia-v2-booking {
   width: 100% !important;
+  min-width: 750px !important;
 }
 
 .woocommerce-product-gallery__wrapper {
