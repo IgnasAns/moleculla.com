@@ -522,53 +522,10 @@ body.woocommerce-account main.wp-block-group { margin-top: 20px !important; }
 body.woocommerce-account .wp-block-post-title { margin-bottom: 20px !important; }
 body.woocommerce-account main.wp-block-group > .wp-block-group.alignfull { padding-top: 0px !important; }
 
-/* Sign out button */
-.m-account-dashboard__actions button.m-secondary-action {
-  background: transparent;
-  border: 1px solid #504a4a;
-  border-radius: 999px;
-  color: #504a4a;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.875rem;
-  min-height: 2.75rem;
-  padding: 0.5rem 1.5rem;
-  text-decoration: none;
-  width: auto;
-}
-.m-account-dashboard__actions button.m-secondary-action:hover {
-  background: #504a4a;
-  color: #fff;
-}
-
 /* Fix gap below footer */
 footer.wp-block-template-part:empty { display: none !important; }
-.wc-block-components-drawer__screen-overlay { display: none !important; }
-
-/* Container Padding */
-main.wp-block-group { padding-left: 60px !important; padding-right: 60px !important; }
-
-/* Login/Register Forms Layout */
-.woocommerce .u-columns.col2-set {
-    display: flex !important;
-    gap: 40px !important;
-    align-items: flex-start !important;
-}
-.woocommerce .u-column1.col-1,
-.woocommerce .u-column2.col-2 {
-    flex: 1 !important;
-    width: 50% !important;
-    margin: 0 !important;
-    padding: 30px !important;
-    background: #F9F9F9 !important;
-    border-radius: 8px !important;
-}
-.woocommerce-form-login__submit,
-.woocommerce-form-register__submit { color: #DDB999 !important; }
-
-/* Account Padding */
-.woocommerce #customer_login { padding: 0 40px !important; }
 #customer_login[hidden] { display: none !important; }
+body.woocommerce-account > div:not(.wp-site-blocks):not([class*="a11y"]) { display: none !important; }
 
 /* Account Dashboard */
 .m-account-dashboard,
@@ -634,6 +591,30 @@ main.wp-block-group { padding-left: 60px !important; padding-right: 60px !import
   color: #fff;
   border-color: #504a4a;
 }
+
+/* Container Padding */
+main.wp-block-group { padding-left: 60px !important; padding-right: 60px !important; }
+
+/* Login/Register Forms Layout */
+.woocommerce .u-columns.col2-set {
+    display: flex !important;
+    gap: 40px !important;
+    align-items: flex-start !important;
+}
+.woocommerce .u-column1.col-1,
+.woocommerce .u-column2.col-2 {
+    flex: 1 !important;
+    width: 50% !important;
+    margin: 0 !important;
+    padding: 30px !important;
+    background: #F9F9F9 !important;
+    border-radius: 8px !important;
+}
+.woocommerce-form-login__submit,
+.woocommerce-form-register__submit { color: #DDB999 !important; }
+
+/* Account Padding */
+.woocommerce #customer_login { padding: 0 40px !important; }
 
 /* Account Responsive */
 @media (max-width: 800px) {
@@ -846,8 +827,8 @@ body.woocommerce-checkout .wc-block-components-address-card .wc-block-components
       as="image" 
       type="image/webp"
       fetchpriority="high"
-      href="/assets/mirror/uploads/2025/09/Moleculla_Lifestyle_Wellness_Nutrition_Main_Logo-edited.webp?v=20260609auth3"
-      imagesrcset="/assets/mirror/uploads/2025/09/Moleculla_Lifestyle_Wellness_Nutrition_Main_Logo-edited-300x37.webp?v=20260609auth3 300w, /assets/mirror/uploads/2025/09/Moleculla_Lifestyle_Wellness_Nutrition_Main_Logo-edited.webp?v=20260609auth3 512w"
+      href="/assets/mirror/uploads/2025/09/Moleculla_Lifestyle_Wellness_Nutrition_Main_Logo-edited.webp"
+      imagesrcset="/assets/mirror/uploads/2025/09/Moleculla_Lifestyle_Wellness_Nutrition_Main_Logo-edited-300x37.webp 300w, /assets/mirror/uploads/2025/09/Moleculla_Lifestyle_Wellness_Nutrition_Main_Logo-edited.webp 512w"
       imagesizes="(max-width: 294px) 100vw, 294px" />
 <style class='wp-fonts-local'>
 @font-face{font-family:Manrope;font-style:normal;font-weight:200 800;font-display:fallback;src:url('/assets/mirror/themes/twentytwentyfive/assets/fonts/manrope/Manrope-VariableFont_wght.woff2') format('woff2');}
@@ -858,15 +839,15 @@ body.woocommerce-checkout .wc-block-components-address-card .wc-block-components
 <link rel="apple-touch-icon" href="/assets/mirror/uploads/2025/09/Moleculla_Lifestyle_Wellness_Nutrition_Favicon-300x300.webp" />
 <meta name="msapplication-TileImage" content="/assets/mirror/uploads/2025/09/Moleculla_Lifestyle_Wellness_Nutrition_Favicon-300x300.webp" />
   <link rel="canonical" href="https://moleculla.com/my-account/" />
-  <script id="moleculla-seo-jsonld" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://moleculla.com/#organization","name":"Moleculla","url":"https://moleculla.com","logo":{"@type":"ImageObject","url":"https://moleculla.com/assets/mirror/uploads/2025/09/Moleculla_Lifestyle_Wellness_Nutrition_Main_Logo-edited.webp?v=20260609auth3"},"email":"moleculla.info@gmail.com"},{"@type":"WebSite","@id":"https://moleculla.com/#website","url":"https://moleculla.com","name":"Moleculla","publisher":{"@id":"https://moleculla.com/#organization"},"inLanguage":"en-US"},{"@type":"BreadcrumbList","@id":"https://moleculla.com/my-account/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Moleculla","item":"https://moleculla.com"},{"@type":"ListItem","position":2,"name":"My account","item":"https://moleculla.com/my-account/"}]},{"@type":"WebPage","@id":"https://moleculla.com/my-account/#webpage","url":"https://moleculla.com/my-account/","name":"My Account - Moleculla","description":"Access your Moleculla account details and wellness purchase information.","isPartOf":{"@id":"https://moleculla.com/#website"},"breadcrumb":{"@id":"https://moleculla.com/my-account/#breadcrumb"},"inLanguage":"en-US"}]}</script>
-  <link rel="stylesheet" href="/assets/mirror/static-overrides.css?v=20260609auth3">
+  <script id="moleculla-seo-jsonld" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://moleculla.com/#organization","name":"Moleculla","url":"https://moleculla.com","logo":{"@type":"ImageObject","url":"https://moleculla.com/assets/mirror/uploads/2025/09/Moleculla_Lifestyle_Wellness_Nutrition_Main_Logo-edited.webp"},"email":"moleculla.info@gmail.com"},{"@type":"WebSite","@id":"https://moleculla.com/#website","url":"https://moleculla.com","name":"Moleculla","publisher":{"@id":"https://moleculla.com/#organization"},"inLanguage":"en-US"},{"@type":"BreadcrumbList","@id":"https://moleculla.com/my-account/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Moleculla","item":"https://moleculla.com"},{"@type":"ListItem","position":2,"name":"My account","item":"https://moleculla.com/my-account/"}]},{"@type":"WebPage","@id":"https://moleculla.com/my-account/#webpage","url":"https://moleculla.com/my-account/","name":"My Account - Moleculla","description":"Access your Moleculla account details and wellness purchase information.","isPartOf":{"@id":"https://moleculla.com/#website"},"breadcrumb":{"@id":"https://moleculla.com/my-account/#breadcrumb"},"inLanguage":"en-US"}]}</script>
+  <link rel="stylesheet" href="/assets/mirror/static-overrides.css?v=20260529c">
 </head>
 
 <body class="wp-singular page-template-default page page-id-95 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive theme-twentytwentyfive woocommerce-account woocommerce-page woocommerce-uses-block-theme woocommerce-block-theme-has-button-styles woocommerce-js elementor-default elementor-kit-904">
 
 <div class="wp-site-blocks"><header class="wp-block-template-part">
 <div class="wp-block-group alignfull wc-blocks-pattern-header-minimal wc-blocks-header-pattern sticky-header has-custom-504-a-4-a-background-color has-background is-content-justification-space-between is-nowrap is-layout-flex wp-container-core-group-is-layout-cb69801d wp-block-group-is-layout-flex" style="margin-top:0px;margin-bottom:0px;padding-top:1%;padding-right:0%;padding-bottom:1%;padding-left:0%">
-<div class="wp-block-group is-content-justification-left is-nowrap is-layout-flex wp-container-core-group-is-layout-a06460ac wp-block-group-is-layout-flex"><div style="padding-top:0;padding-bottom:0;margin-top:0;margin-bottom:0;" class="is-style-default wp-block-site-logo wp-container-content-9cfa9a5a"><a href="/" class="custom-logo-link" rel="home"><img width="294" height="36" src="/assets/mirror/uploads/2025/09/Moleculla_Lifestyle_Wellness_Nutrition_Main_Logo-edited.webp?v=20260609auth3" class="custom-logo" alt="Moleculla Lifestyle Wellness Nutrition Main Logo" decoding="async" srcset="/assets/mirror/uploads/2025/09/Moleculla_Lifestyle_Wellness_Nutrition_Main_Logo-edited.webp?v=20260609auth3 512w, /assets/mirror/uploads/2025/09/Moleculla_Lifestyle_Wellness_Nutrition_Main_Logo-edited-300x37.webp?v=20260609auth3 300w" sizes="(max-width: 294px) 100vw, 294px" /></a></div></div>
+<div class="wp-block-group is-content-justification-left is-nowrap is-layout-flex wp-container-core-group-is-layout-a06460ac wp-block-group-is-layout-flex"><div style="padding-top:0;padding-bottom:0;margin-top:0;margin-bottom:0;" class="is-style-default wp-block-site-logo wp-container-content-9cfa9a5a"><a href="/" class="custom-logo-link" rel="home"><img width="294" height="36" src="/assets/mirror/uploads/2025/09/Moleculla_Lifestyle_Wellness_Nutrition_Main_Logo-edited.webp" class="custom-logo" alt="Moleculla Lifestyle Wellness Nutrition Main Logo" decoding="async" srcset="/assets/mirror/uploads/2025/09/Moleculla_Lifestyle_Wellness_Nutrition_Main_Logo-edited.webp 512w, /assets/mirror/uploads/2025/09/Moleculla_Lifestyle_Wellness_Nutrition_Main_Logo-edited-300x37.webp 300w" sizes="(max-width: 294px) 100vw, 294px" /></a></div></div>
 
 
 
@@ -965,20 +946,10 @@ body.woocommerce-checkout .wc-block-components-address-card .wc-block-components
 				<input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" autocomplete="email" value="" required aria-required="true" />			</p>
 
 			
-				<p>Choose a password for your Moleculla account. If email confirmation is required, we will send a confirmation link before first login.</p>
-
-			<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-				<label for="reg_password">Password&nbsp;<span class="required" aria-hidden="true">*</span><span class="screen-reader-text">Required</span></label>
-				<input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="reg_password" autocomplete="new-password" minlength="8" required aria-required="true" />
-			</p>
-
-			<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-				<label for="reg_password_confirm">Confirm password&nbsp;<span class="required" aria-hidden="true">*</span><span class="screen-reader-text">Required</span></label>
-				<input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password_confirm" id="reg_password_confirm" autocomplete="new-password" minlength="8" required aria-required="true" />
-			</p>
+				<p>A link to set a new password will be sent to your email address.</p>
 
 			
-			<wc-order-attribution-inputs></wc-order-attribution-inputs><div class="woocommerce-privacy-policy-text"><p>Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <a href="/?modal=privacy" class="woocommerce-privacy-policy-link">privacy policy</a>.</p>
+			<wc-order-attribution-inputs></wc-order-attribution-inputs><div class="woocommerce-privacy-policy-text"><p>Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <a href="" class="woocommerce-privacy-policy-link" target="_blank">privacy policy</a>.</p>
 </div>
 			<p class="woocommerce-form-row form-row">
 				<input type="hidden" id="woocommerce-register-nonce" name="woocommerce-register-nonce" value="9f73877239" /><input type="hidden" name="_wp_http_referer" value="/my-account/" />				<button type="submit" class="woocommerce-Button woocommerce-button button wp-element-button woocommerce-form-register__submit" name="register" value="Register">Register</button>
@@ -1344,10 +1315,12 @@ body.woocommerce-checkout .wc-block-components-address-card .wc-block-components
   
   
   
-  <script src="/assets/mirror/commerce-config.js?v=20260609auth3"></script>
-  <script src="/assets/mirror/static.js?v=20260609auth3" defer></script>
+  <script src="/assets/mirror/commerce-config.js?v=20260519n"></script>
+  <script src="/assets/mirror/static.js?v=20260519n" defer></script>
 </body>
 </html>
 
 <!-- WP Optimize page cache - https://teamupdraft.com/wp-optimize/ - Page not served from cache  -->
+
+
 
