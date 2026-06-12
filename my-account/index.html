@@ -520,7 +520,30 @@ body.woocommerce-account .woocommerce-notices-wrapper > .woocommerce-error {
 /* Main Content Spacing */
 body.woocommerce-account main.wp-block-group { margin-top: 20px !important; }
 body.woocommerce-account .wp-block-post-title { margin-bottom: 20px !important; }
-body.woocommerce-account .wp-block-group.alignfull { padding-top: 0px !important; }
+body.woocommerce-account main.wp-block-group > .wp-block-group.alignfull { padding-top: 0px !important; }
+
+/* Sign out button */
+.m-account-dashboard__actions button.m-secondary-action {
+  background: transparent;
+  border: 1px solid #504a4a;
+  border-radius: 999px;
+  color: #504a4a;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  width: auto;
+}
+.m-account-dashboard__actions button.m-secondary-action:hover {
+  background: #504a4a;
+  color: #fff;
+}
+
+/* Fix gap below footer */
+body.woocommerce-account .m-site-footer ~ * { display: none !important; }
+body.woocommerce-account .m-site-footer + .wp-block-template-part { display: none !important; }
 
 /* Container Padding */
 main.wp-block-group { padding-left: 60px !important; padding-right: 60px !important; }
