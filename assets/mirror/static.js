@@ -2304,4 +2304,21 @@
   captureAuthSessionFromHash();
   renderAccountDashboard();
   renderPasswordRecoveryPage();
+
+  const ameliaWidget = document.querySelector(".amelia-v2-booking");
+  if (ameliaWidget) {
+    const observer = new MutationObserver(() => {
+      const shadow = ameliaWidget.shadowRoot;
+      if (!shadow) return;
+      const wrapper = shadow.querySelector("step-form-wrapper");
+      if (!wrapper) return;
+      observer.disconnect();
+      const container = document.createElement("div");
+      container.className = "m-amelia-container";
+      container.style.cssText = "position: relative; width: 100%; overflow-x: auto;";
+      ameliaWidget.parentNode.insertBefore(container, ameliaWidget);
+      container.appendChild(ameliaWidget);
+    });
+    observer.observe(ameliaWidget, { childList: true, subtree: true });
+  }
 })();
