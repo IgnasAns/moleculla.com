@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "moleculla",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8099", "--directory", "C:/Users/Ignas/Desktop/Moleculla MERGED"],
+      "port": 8099
+    }
+  ]
+}
