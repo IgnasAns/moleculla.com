@@ -2378,7 +2378,7 @@
           if (currentStep + 1 === 3) {
             const dateValue = widget.querySelector('[data-summary-date]');
             const timeValue = widget.querySelector('[data-summary-time]');
-            if (dateValue) dateValue.textContent = selectedDate ? new Date(selectedDate).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : '-';
+            if (dateValue) dateValue.textContent = selectedDate ? new Date(selectedDate + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : '-';
             if (timeValue) timeValue.textContent = selectedTime || '-';
           }
         }
@@ -2413,8 +2413,8 @@
           goals: formData?.get("goals") || "",
         };
 
-        // Format date for display
-        const dateObj = new Date(selectedDate);
+        // Format date for display (parse as local midnight to avoid UTC day-shift)
+        const dateObj = new Date(selectedDate + 'T00:00:00');
         const dateLabel = dateObj.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
         // Add to cart with booking options

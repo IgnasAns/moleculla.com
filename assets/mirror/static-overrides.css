@@ -848,6 +848,33 @@ a.m-training-opening__media:hover {
   display: none !important;
 }
 
+/* Product variation table: keep the attribute label (e.g. "Material") on one
+   line, and stack label above the dropdown on phones so it never squashes. */
+.variations th.label {
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+@media (max-width: 480px) {
+  .variations,
+  .variations tbody,
+  .variations tr,
+  .variations th.label,
+  .variations td.value {
+    display: block;
+    width: 100%;
+  }
+
+  .variations th.label {
+    padding: 0 0 0.35rem;
+    text-align: left;
+  }
+
+  .variations td.value select {
+    width: 100%;
+  }
+}
+
 /* Header cart + account icons. The WooCommerce block stylesheets that
    normally size these SVGs are not loaded in the static snapshot, so the
    icons collapse to 0x0. Give them explicit dimensions. */
