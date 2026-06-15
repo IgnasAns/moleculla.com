@@ -2825,7 +2825,12 @@ body.custom-modal-open {
   gap: 0.5rem;
   padding: 1rem 2rem;
   width: 100%;
+  box-sizing: border-box;
   text-align: center;
+}
+
+.m-product-listing__title {
+  overflow-wrap: anywhere;
 }
 
 .m-product-listing__title {
@@ -3364,6 +3369,48 @@ body {
   color: #504a4a;
   font-weight: 600;
   font-size: 0.95rem;
+}
+
+/* Action buttons should never break their label across lines. */
+.m-booking-next-btn,
+.m-booking-confirm-btn,
+.m-booking-back-btn {
+  white-space: nowrap;
+}
+
+/* Booking widget on phones: stack the step number above its label and
+   give each step an equal share so labels wrap at words, not per-letter. */
+@media (max-width: 560px) {
+  .m-booking-widget {
+    padding: 1.25rem;
+  }
+
+  .m-booking-steps {
+    gap: 0.35rem;
+  }
+
+  .m-booking-step {
+    flex: 1 1 0 !important;
+    flex-direction: column !important;
+    gap: 0.35rem !important;
+    min-width: 0 !important;
+    font-size: 0.72rem !important;
+    line-height: 1.2 !important;
+    text-align: center;
+  }
+
+  .m-booking-actions {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+  }
+
+  .m-booking-actions .m-booking-next-btn,
+  .m-booking-actions .m-booking-confirm-btn,
+  .m-booking-actions .m-booking-back-btn {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 /* =========================================
