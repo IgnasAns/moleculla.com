@@ -848,6 +848,52 @@ a.m-training-opening__media:hover {
   display: none !important;
 }
 
+/* Header cart + account icons. The WooCommerce block stylesheets that
+   normally size these SVGs are not loaded in the static snapshot, so the
+   icons collapse to 0x0. Give them explicit dimensions. */
+.wc-block-mini-cart__icon {
+  display: block;
+  height: 28px;
+  width: 28px;
+}
+
+.wc-block-customer-account__account-icon,
+.wp-block-woocommerce-customer-account svg {
+  display: block;
+  height: 26px;
+  width: 26px;
+}
+
+.wc-block-mini-cart__button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+.wc-block-mini-cart__quantity-badge {
+  display: inline-block;
+  position: relative;
+}
+
+/* Item-count bubble on the cart icon. */
+.wc-block-mini-cart__badge:not([hidden]) {
+  align-items: center;
+  background: #ddb999 !important;
+  border-radius: 999px;
+  color: #504a4a !important;
+  display: flex;
+  font-size: 0.7rem;
+  font-weight: 600;
+  height: 1.15rem;
+  justify-content: center;
+  min-width: 1.15rem;
+  padding: 0 0.2rem;
+  position: absolute;
+  right: -0.5rem;
+  top: -0.45rem;
+}
+
 .wc-block-components-drawer__screen-overlay,
 .wcpay-express-checkout-wrapper {
   display: none !important;
