@@ -848,31 +848,165 @@ a.m-training-opening__media:hover {
   display: none !important;
 }
 
-/* Product variation table: keep the attribute label (e.g. "Material") on one
-   line, and stack label above the dropdown on phones so it never squashes. */
-.variations th.label {
-  white-space: nowrap;
-  vertical-align: middle;
+/* =========================================
+   SALE BADGE — sticker on the product image
+   (product grids + single product gallery)
+   ========================================= */
+.wc-block-components-product-image,
+.wp-block-woocommerce-product-image-gallery,
+.woocommerce-product-gallery {
+  position: relative;
 }
 
-@media (max-width: 480px) {
-  .variations,
-  .variations tbody,
-  .variations tr,
-  .variations th.label,
-  .variations td.value {
-    display: block;
-    width: 100%;
-  }
+.wc-block-components-product-image .wp-block-woocommerce-product-sale-badge,
+.wp-block-woocommerce-product-image-gallery > .onsale,
+.woocommerce-product-gallery > .onsale,
+.product > .onsale {
+  left: 0.75rem;
+  margin: 0 !important;
+  position: absolute !important;
+  right: auto !important;
+  top: 0.75rem;
+  z-index: 4;
+}
 
-  .variations th.label {
-    padding: 0 0 0.35rem;
-    text-align: left;
-  }
+.wc-block-components-product-sale-badge,
+.onsale {
+  background: #ddb999 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: 0 2px 8px rgba(80, 74, 74, 0.22);
+  color: #504a4a !important;
+  display: inline-block !important;
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  line-height: 1 !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  padding: 0.4rem 0.7rem !important;
+  text-transform: uppercase !important;
+  width: auto !important;
+}
 
-  .variations td.value select {
-    width: 100%;
-  }
+.wc-block-components-product-sale-badge .screen-reader-text {
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+
+/* =========================================
+   SINGLE PRODUCT — purchase area (variation
+   select, quantity, Add to cart / Buy now)
+   ========================================= */
+
+/* Variable-product forms must not use the simple-product 3-column grid,
+   which scatters the variation table and buttons into columns. */
+.wp-block-woocommerce-add-to-cart-form form.cart.variations_form,
+form.cart.variations_form {
+  display: block !important;
+}
+
+/* Attribute label sits above a full-width styled dropdown. */
+.variations,
+.variations tbody,
+.variations tr,
+.variations th.label,
+.variations td.value {
+  display: block;
+  width: 100%;
+}
+
+.variations th.label {
+  color: #756d68;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em;
+  margin: 0;
+  padding: 0 0 0.45rem !important;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.variations th.label label {
+  font: inherit;
+  margin: 0;
+}
+
+.variations td.value {
+  margin-bottom: 0.4rem;
+  position: relative;
+}
+
+.variations select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'><path d='M1 1l5 5 5-5' stroke='%23504a4a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-position: right 0.9rem center;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(80, 74, 74, 0.28);
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #504a4a;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.95rem;
+  min-height: 48px;
+  padding: 0.6rem 2.5rem 0.6rem 0.9rem;
+  width: 100%;
+}
+
+.variations select:focus {
+  border-color: #9d8775;
+  box-shadow: 0 0 0 2px rgba(221, 185, 153, 0.22);
+  outline: none;
+}
+
+a.reset_variations {
+  color: #9d8775;
+  display: inline-block;
+  font-size: 0.82rem;
+  margin: 0.1rem 0 0;
+  text-decoration: underline;
+}
+
+.single_variation_wrap .woocommerce-variation-price {
+  display: block;
+  font-size: 1.05rem;
+  margin: 0.75rem 0 0;
+}
+
+/* Button row: quantity + Add to cart on one line, Buy now full width below.
+   Scoped with .variations_form for specificity over the generic block rules. */
+.variations_form .woocommerce-variation-add-to-cart.variations_button {
+  align-items: stretch !important;
+  display: grid !important;
+  gap: 0.75rem !important;
+  grid-template-columns: auto minmax(0, 1fr) !important;
+  margin-top: 1.25rem !important;
+  width: 100% !important;
+}
+
+.variations_form .woocommerce-variation-add-to-cart.variations_button > .quantity {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+.variations_form .woocommerce-variation-add-to-cart.variations_button > .single_add_to_cart_button {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  width: 100% !important;
+}
+
+.variations_form .woocommerce-variation-add-to-cart.variations_button > .m-buy-now-button {
+  grid-column: 1 / -1 !important;
+  grid-row: 2 !important;
+  width: 100% !important;
 }
 
 /* Header cart + account icons. The WooCommerce block stylesheets that
