@@ -3366,4 +3366,41 @@ body {
   font-size: 0.95rem;
 }
 
+/* =========================================
+   RESPONSIVE / OVERFLOW SAFETY
+   Fixes horizontal scroll on phones caused by fixed-size
+   WooCommerce product thumbnails (intrinsic 300px) forcing
+   grid tracks wider than the viewport.
+   ========================================= */
+
+/* Content images never exceed their container. Decorative/opted-out
+   images (Instagram tiles) already set max-width:none !important and
+   are unaffected. */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* WooCommerce shop/category product grid: let columns shrink to fit
+   the phone instead of holding the image's intrinsic width. */
+.wc-block-product-template .wc-block-components-product-image img,
+.wc-block-product-template .wc-block-grid__product-image img {
+  height: auto;
+  width: 100%;
+}
+
+.wc-block-product-template .wc-block-product,
+ul.wc-block-product-template li.product {
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  /* Two roomy columns on phones rather than cramped tracks. */
+  .wc-block-product-template.columns-3,
+  .wc-block-product-template.columns-4,
+  .wc-block-product-template.columns-5 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
 
