@@ -1019,6 +1019,15 @@
       if (res.ok) {
         form.reset();
         setNewsletterStatus(form, "Thank you — you're subscribed!", "success");
+        // Best-effort welcome email (no-op until the edge function is deployed).
+        const fnBase = String(commerceConfig.functionsBaseUrl || "").replace(/\/+$/, "");
+        try {
+          fetch(fnBase + "/newsletter-welcome", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "apikey": key, "Authorization": "Bearer " + key },
+            body: JSON.stringify({ email }),
+          }).catch(() => {});
+        } catch (_e) { /* ignore */ }
       } else if (res.status === 409) {
         form.reset();
         setNewsletterStatus(form, "You're already subscribed — thank you!", "success");
