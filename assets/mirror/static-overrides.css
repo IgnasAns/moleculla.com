@@ -3168,6 +3168,61 @@ main > .wp-block-post-title {
   display: none !important;
 }
 
+/* =========================================
+   HEADER — a little more height around the logo
+   ========================================= */
+.sticky-header {
+  padding-top: clamp(1rem, 1.6vw, 1.45rem) !important;
+  padding-bottom: clamp(1rem, 1.6vw, 1.45rem) !important;
+}
+
+/* =========================================
+   INSTAGRAM CAROUSEL — responsive circle size
+   (was a fixed 100px on every screen)
+   ========================================= */
+.ia-roulette-container .ia-item.image img {
+  width: clamp(60px, 11vw, 104px) !important;
+  height: clamp(60px, 11vw, 104px) !important;
+}
+
+/* =========================================
+   EMPTY CART — tidy "New in store" suggestions
+   ========================================= */
+.wp-block-woocommerce-empty-cart-block {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1040px;
+}
+
+.wp-block-woocommerce-empty-cart-block .wc-block-grid__products {
+  display: grid;
+  gap: 1.75rem 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 210px));
+  justify-content: center;
+  list-style: none;
+  margin: 1.75rem auto 0;
+  max-width: 920px;
+  padding: 0;
+}
+
+.wp-block-woocommerce-empty-cart-block .wc-block-grid__product {
+  display: flex;
+  flex-direction: column;
+  margin: 0 !important;
+  text-align: center;
+}
+
+.wp-block-woocommerce-empty-cart-block .wc-block-grid__product img {
+  height: auto;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.wp-block-woocommerce-empty-cart-block .wc-block-grid__product .wp-block-button {
+  margin-top: auto;
+  padding-top: 0.6rem;
+}
+
 /* PDF download modal styles */
 .m-pdf-download-btn {
   align-items: center;

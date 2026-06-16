@@ -1971,7 +1971,7 @@
       </nav>
       <div class="m-site-footer__social">
         <h2 class="m-site-footer__heading">Social</h2>
-        <a href="https://www.instagram.com/moleculla/" target="_blank" rel="noopener nofollow">Instagram</a>
+        <a href="https://www.instagram.com/moleculla_com/" target="_blank" rel="noopener nofollow">Instagram</a>
       </div>
       <p class="m-site-footer__copy">&copy; ${year} Moleculla. All rights reserved.</p>
     </div>`;
