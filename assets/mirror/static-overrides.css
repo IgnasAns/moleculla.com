@@ -3129,20 +3129,43 @@ body.custom-modal-open {
   }
 }
 
-/* Sticky footer - eliminate white space below footer */
-html, body {
+/* Sticky footer - keep the footer pinned to the bottom with no blank space
+   below it. The footer lives INSIDE .wp-site-blocks, so that element (not body)
+   must be the flex column, and the main content grows to fill short pages. */
+html {
   min-height: 100vh;
   min-height: 100svh;
 }
 body {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
 }
 .wp-site-blocks {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+.wp-site-blocks > main,
+body > main {
   flex: 1 0 auto;
 }
 .m-site-footer {
   flex-shrink: 0;
+}
+
+/* Breathing room between the sticky header and a page title that sits directly
+   at the top of the content (Cart, Checkout, etc.). */
+main > .wp-block-post-title {
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* Hide the WooCommerce/PhotoSwipe gallery lightbox container while it is
+   closed. Its hide-styles were lost with the old plugin CSS, leaving an empty
+   strip below the footer on product pages. It is shown via .pswp--open on use. */
+.pswp:not(.pswp--open) {
+  display: none !important;
 }
 
 /* PDF download modal styles */
