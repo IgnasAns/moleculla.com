@@ -952,6 +952,87 @@
     }
   }
 
+  function newsletterMarkup() {
+    return `
+      <section class="m-newsletter" aria-label="Newsletter signup">
+        <div class="m-newsletter__inner">
+          <p class="m-newsletter__eyebrow">Stay in the loop</p>
+          <h2>Join the Moleculla circle</h2>
+          <p class="m-newsletter__lead">Wellness insights, new arrivals, and member-only offers &mdash; straight to your inbox.</p>
+          <form class="m-newsletter-form" data-newsletter-form novalidate>
+            <label class="screen-reader-text" for="m-newsletter-email">Email address</label>
+            <input id="m-newsletter-email" name="email" type="email" placeholder="Email address" autocomplete="email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+          <p class="m-newsletter-status" data-newsletter-status aria-live="polite"></p>
+          <p class="m-newsletter__privacy">No spam. Unsubscribe anytime.</p>
+        </div>
+      </section>`;
+  }
+
+  function injectNewsletterSignup() {
+    const path = window.location.pathname.replace(/\/+$/, "");
+    if (path !== "/shop-site" && path !== "") return; // homepage / main shop page only
+    if (document.querySelector(".m-newsletter")) return;
+    const footer = document.querySelector("footer.m-site-footer, .m-site-footer");
+    if (!footer || !footer.parentNode) return;
+    const wrap = document.createElement("div");
+    wrap.innerHTML = newsletterMarkup();
+    footer.parentNode.insertBefore(wrap.firstElementChild, footer);
+  }
+
+  function setNewsletterStatus(form, message, type = "") {
+    const status = form.querySelector("[data-newsletter-status]")
+      || form.parentElement.querySelector("[data-newsletter-status]");
+    if (!status) return;
+    status.textContent = message;
+    status.className = "m-newsletter-status" + (type ? " is-" + type : "");
+  }
+
+  async function handleNewsletterSubmit(form) {
+    const email = String(new FormData(form).get("email") || "").trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setNewsletterStatus(form, "Please enter a valid email address.", "error");
+      return;
+    }
+    const base = String(commerceConfig.functionsBaseUrl || "")
+      .replace(/\/functions\/v1\/?$/, "").replace(/\/+$/, "");
+    const key = commerceConfig.supabaseAnonKey;
+    if (!base || !key) {
+      setNewsletterStatus(form, "Newsletter is not connected yet.", "error");
+      return;
+    }
+    const button = form.querySelector('button[type="submit"]');
+    if (button) button.disabled = true;
+    setNewsletterStatus(form, "Subscribing…");
+    try {
+      const res = await fetch(base + "/rest/v1/newsletter_subscribers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": key,
+          "Authorization": "Bearer " + key,
+          "Prefer": "return=minimal",
+        },
+        body: JSON.stringify({ email, source_url: window.location.href }),
+      });
+      if (res.ok) {
+        form.reset();
+        setNewsletterStatus(form, "Thank you — you're subscribed!", "success");
+      } else if (res.status === 409) {
+        form.reset();
+        setNewsletterStatus(form, "You're already subscribed — thank you!", "success");
+      } else {
+        const payload = await res.json().catch(() => ({}));
+        throw new Error(payload.message || "Could not subscribe right now.");
+      }
+    } catch (error) {
+      setNewsletterStatus(form, error.message || "Could not subscribe. Please try again.", "error");
+    } finally {
+      if (button) button.disabled = false;
+    }
+  }
+
   function setPdfDownloadStatus(form, message, type = "") {
     const status = form.querySelector("[data-pdf-download-status]");
     if (!status) return;
@@ -2217,6 +2298,13 @@
       return;
     }
 
+    const newsletterForm = event.target.closest("[data-newsletter-form]");
+    if (newsletterForm) {
+      event.preventDefault();
+      handleNewsletterSubmit(newsletterForm);
+      return;
+    }
+
     const checkoutForm = event.target.closest(".m-checkout-form");
     if (checkoutForm) {
       event.preventDefault();
@@ -2244,6 +2332,7 @@
   });
 
   enhanceSiteFooters();
+  injectNewsletterSignup();
   document.querySelectorAll(".custom-modal").forEach((modal) => {
     modal.setAttribute("aria-hidden", modal.classList.contains("active") ? "false" : "true");
   });

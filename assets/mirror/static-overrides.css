@@ -3223,6 +3223,126 @@ main > .wp-block-post-title {
   padding-top: 0.6rem;
 }
 
+/* =========================================
+   NEWSLETTER SIGNUP (bottom of homepage)
+   ========================================= */
+.m-newsletter {
+  background: #f2eee7;
+  box-sizing: border-box;
+  padding: clamp(2.75rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.m-newsletter__inner {
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+.m-newsletter__eyebrow {
+  color: #9d8775;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.6rem;
+  text-transform: uppercase;
+}
+
+.m-newsletter h2 {
+  color: #504a4a;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 300;
+  letter-spacing: 0;
+  margin: 0 0 0.6rem;
+}
+
+.m-newsletter__lead {
+  color: #5d5650;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  margin: 0 0 1.6rem;
+}
+
+.m-newsletter-form {
+  display: flex;
+  gap: 0.6rem;
+  margin: 0 auto;
+  max-width: 440px;
+}
+
+.m-newsletter-form input[type="email"] {
+  background: #fff;
+  border: 1px solid rgba(80, 74, 74, 0.28);
+  border-radius: 999px;
+  box-sizing: border-box;
+  color: #504a4a;
+  flex: 1 1 auto;
+  font: inherit;
+  min-height: 48px;
+  padding: 0.75rem 1.25rem;
+}
+
+.m-newsletter-form input[type="email"]:focus {
+  border-color: #9d8775;
+  box-shadow: 0 0 0 2px rgba(221, 185, 153, 0.25);
+  outline: none;
+}
+
+.m-newsletter-form button {
+  background: #504a4a;
+  border: 1px solid #504a4a;
+  border-radius: 999px;
+  color: #fbfaf3;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font: inherit;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  min-height: 48px;
+  padding: 0.75rem 1.75rem;
+  text-transform: uppercase;
+  transition: background-color 0.18s ease;
+}
+
+.m-newsletter-form button:hover {
+  background: #9d8775;
+}
+
+.m-newsletter-form button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.m-newsletter-status {
+  color: #5d5650;
+  font-size: 0.9rem;
+  margin: 0.9rem 0 0;
+  min-height: 1.2em;
+}
+
+.m-newsletter-status.is-error {
+  color: #8f4137;
+}
+
+.m-newsletter-status.is-success {
+  color: #4f6653;
+}
+
+.m-newsletter__privacy {
+  color: #8a827b;
+  font-size: 0.82rem;
+  font-style: italic;
+  margin: 0.8rem 0 0;
+}
+
+@media (max-width: 520px) {
+  .m-newsletter-form {
+    flex-direction: column;
+  }
+
+  .m-newsletter-form button {
+    width: 100%;
+  }
+}
+
 /* PDF download modal styles */
 .m-pdf-download-btn {
   align-items: center;
