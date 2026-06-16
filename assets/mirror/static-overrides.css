@@ -3352,6 +3352,69 @@ main > .wp-block-post-title {
   }
 }
 
+/* =========================================
+   PASSWORD RESET / ACCOUNT-HELP PAGE FORM
+   Normalize the input + buttons (input was tiny default-styled while the
+   submit button stretched full card width).
+   ========================================= */
+.m-account-help-card .m-auth-form {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem auto 0;
+  max-width: 380px;
+  text-align: left;
+}
+
+.m-account-help-card .m-auth-form-row {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.m-account-help-card .m-auth-form-row label {
+  color: #504a4a;
+  font-size: 0.9rem;
+}
+
+.m-account-help-card .m-auth-form input {
+  background: #fff;
+  border: 1px solid rgba(80, 74, 74, 0.28);
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #504a4a;
+  font: inherit;
+  font-size: 0.95rem;
+  min-height: 48px;
+  padding: 0.6rem 0.9rem;
+  width: 100%;
+}
+
+.m-account-help-card .m-auth-form input:focus {
+  border-color: #9d8775;
+  box-shadow: 0 0 0 2px rgba(221, 185, 153, 0.22);
+  outline: none;
+}
+
+.m-account-help-card .m-auth-form .m-primary-action {
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  min-height: 48px;
+  width: 100%;
+}
+
+/* Keep the secondary "Back to account" button the same width/height as the form */
+.m-account-help__actions {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 380px;
+}
+
+.m-account-help__actions a {
+  min-height: 48px;
+  padding: 0.7rem 1.5rem;
+  width: 100%;
+}
+
 /* PDF download modal styles */
 .m-pdf-download-btn {
   align-items: center;
