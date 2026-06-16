@@ -23,6 +23,15 @@ CREATE POLICY "anon can subscribe"
   TO anon
   WITH CHECK (true);
 
+-- 4. Grant table privileges so the API role can see/insert into the table.
+--    Without this GRANT, PostgREST hides the table from the schema cache and
+--    inserts fail with "Could not find the table ... in the schema cache".
+GRANT INSERT ON public.newsletter_subscribers TO anon, authenticated;
+GRANT USAGE, SELECT ON SEQUENCE public.newsletter_subscribers_id_seq TO anon, authenticated;
+
+-- 5. Refresh the API schema cache.
+NOTIFY pgrst, 'reload schema';
+
 -- =============================================
 -- After running this, the homepage subscribe form works immediately.
 -- View subscribers in Supabase Dashboard > Table Editor > newsletter_subscribers
