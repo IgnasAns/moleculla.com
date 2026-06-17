@@ -981,6 +981,45 @@
     footer.parentNode.insertBefore(wrap.firstElementChild, footer);
   }
 
+  function fillEmptyProductGrids() {
+    const catalog = [
+      { url: "/product/hydrogen-water-generator/", title: "Hydrogen Water Generator", img: "/assets/mirror/uploads/2025/12/Generated-Image-December-11-2025-3_26PM-1-e1765428901128.jpeg", cat: "hydration" },
+      { url: "/product/copper-dry-body-brush/", title: "Copper bristle dry body brush", img: "/assets/mirror/uploads/2025/09/Body_Brush_Lifestyle_Wellness_Nutrition_1.webp", cat: "body" },
+      { url: "/product/coming-soon/", title: "Supplements organizer and travel case", img: "/assets/mirror/uploads/2025/06/Generated-Image-December-09-2025-10_52PM-scaled-e1765281660471.jpeg", cat: "daily" },
+      { url: "/product/tongue-scraper/", title: "Stainless steel tongue scraper", img: "/assets/mirror/uploads/2025/12/Generated-Image-December-15-2025-6_06PM.jpeg", cat: "daily" },
+      { url: "/product/copper-dry-body-brushing-for-your-glowing-skin/", title: "PDF Guide (Copper dry body brushing)", img: "/assets/mirror/uploads/2026/06/moleculla-copper-dry-body-brushing-guide-cover-600x600.webp", cat: "pdf" },
+      { url: "/product/pdf/", title: "PDF Guide (Hormone balance)", img: "/assets/mirror/uploads/2026/06/moleculla-hormone-balance-guide-cover-600x600.webp", cat: "pdf" },
+    ];
+    const norm = (u) => u.replace(/\/+$/, "");
+    const path = norm(window.location.pathname);
+    const card = (p, label) => `<li class="wc-block-product product type-product">
+      <div class="wc-block-components-product-image wc-block-grid__product-image wp-block-woocommerce-product-image"><a href="${p.url}"><img src="${p.img}" alt="${escapeHtml(p.title)}" loading="lazy" style="object-fit:cover;"></a></div>
+      <h2 class="has-text-align-center wp-block-post-title has-medium-font-size"><a href="${p.url}">${escapeHtml(p.title)}</a></h2>
+      <div class="wp-block-button wc-block-components-product-button align-center wp-block-woocommerce-product-button has-small-font-size"><a class="wp-block-button__link wp-element-button" href="${p.url}"><span>${label}</span></a></div>
+    </li>`;
+
+    document.querySelectorAll("ul.wc-block-product-template").forEach((ul) => {
+      if (ul.children.length) return; // only fill grids that came out empty
+      const catMatch = path.match(/^\/product-category\/([^/]+)/);
+      let items = [];
+      let label = "View product";
+      if (catMatch) {
+        items = catalog.filter((p) => p.cat === catMatch[1]);
+        label = "Read more";
+      } else {
+        const current = catalog.find((p) => norm(p.url) === path);
+        const others = catalog.filter((p) => !current || norm(p.url) !== norm(current.url));
+        items = current
+          ? others.filter((p) => p.cat === current.cat).concat(others.filter((p) => p.cat !== current.cat))
+          : others;
+        items = items.slice(0, 4);
+      }
+      if (!items.length) return;
+      ul.classList.add("m-filled-grid");
+      ul.innerHTML = items.map((p) => card(p, label)).join("");
+    });
+  }
+
   function setNewsletterStatus(form, message, type = "") {
     const status = form.querySelector("[data-newsletter-status]")
       || form.parentElement.querySelector("[data-newsletter-status]");
@@ -2375,6 +2414,7 @@
   enhanceMentoringPageButtons();
   enhanceProductGalleries();
   enhanceRouletteCarousels();
+  fillEmptyProductGrids();
   renderCartCount();
   renderCurrentCommercePage();
   captureAuthSessionFromHash();
