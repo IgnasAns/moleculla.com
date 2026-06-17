@@ -634,7 +634,7 @@ body.woocommerce-checkout .wc-block-components-address-card .wc-block-components
 body.woocommerce-checkout .wc-block-components-address-card .wc-block-components-button.wc-block-components-address-card__edit:hover { background-color: #ddb999 !important;/* Gold background */ color: #504a4a !important;/* Dark text */ text-decoration: none !important;
 }
 @font-face{font-family:Manrope;font-style:normal;font-weight:200 800;font-display:fallback;src:url('/assets/mirror/themes/twentytwentyfive/assets/fonts/manrope/Manrope-VariableFont_wght.woff2') format('woff2');}
-@font-face{font-family:"Fira Code";font-style:normal;font-weight:300 700;font-display:fallback;src:url('/assets/mirror/themes/twentytwentyfive/assets/fonts/fira-code/FiraCode-VariableFont_wght.woff2') format('woff2');}
+
 .wp-block-buttons{box-sizing:border-box}
 .wp-block-buttons.is-vertical{flex-direction:column}
 .wp-block-buttons.is-vertical>.wp-block-button:last-child{margin-bottom:0}
