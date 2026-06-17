@@ -993,7 +993,7 @@
     const norm = (u) => u.replace(/\/+$/, "");
     const path = norm(window.location.pathname);
     const card = (p, label) => `<li class="wc-block-product product type-product">
-      <div class="wc-block-components-product-image wc-block-grid__product-image wp-block-woocommerce-product-image"><a href="${p.url}"><img src="${p.img}" alt="${escapeHtml(p.title)}" loading="lazy" style="object-fit:cover;"></a></div>
+      <div class="wc-block-components-product-image wc-block-grid__product-image wp-block-woocommerce-product-image"><a href="${p.url}"><img src="${p.img}" alt="${escapeHtml(p.title)}" width="600" height="600" loading="lazy" style="object-fit:cover;"></a></div>
       <h2 class="has-text-align-center wp-block-post-title has-medium-font-size"><a href="${p.url}">${escapeHtml(p.title)}</a></h2>
       <div class="wp-block-button wc-block-components-product-button align-center wp-block-woocommerce-product-button has-small-font-size"><a class="wp-block-button__link wp-element-button" href="${p.url}"><span>${label}</span></a></div>
     </li>`;

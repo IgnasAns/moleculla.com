@@ -3162,6 +3162,12 @@ body > main {
   flex-shrink: 0;
 }
 
+/* Newsletter band sits flush against the footer (no gap from the footer's
+   top margin). */
+.m-newsletter + .m-site-footer {
+  margin-top: 0 !important;
+}
+
 /* Breathing room between the sticky header and a page title that sits directly
    at the top of the content (Cart, Checkout, etc.). */
 main > .wp-block-post-title {
